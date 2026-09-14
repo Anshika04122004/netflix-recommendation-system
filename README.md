@@ -136,7 +136,6 @@ The recommendation system was evaluated over a diverse test sample of 200 titles
 ├── Task1_Outputs/                   # Generated pipeline plots & evaluation CSVs
 │   ├── step4_recommendations.csv
 │   └── step5_evaluation_metrics.csv
-├── Dataset.csv                      # Full Netflix metadata dataset (8,790 rows)
 ├── index.html                       # Web app entry point (GitHub Pages ready)
 ├── dashboard.html                   # Standalone interactive dashboard UI
 ├── netflix_recs_data.json           # Precomputed recommendation graph data
