@@ -153,8 +153,8 @@ The recommendation system was evaluated over a diverse test sample of 200 titles
 
 ### 1. Clone & Setup Environment
 ```bash
-git clone https://github.com/<your-username>/<repo-name>.git
-cd <repo-name>
+git clone https://github.com/Anshika04122004/netflix-recommendation-system.git
+cd netflix-recommendation-system
 pip install -r requirements.txt
 ```
 
@@ -181,7 +181,7 @@ You can host the interactive dashboard for free on GitHub Pages:
 1. Push this repository to GitHub.
 2. In your GitHub repository, go to **Settings** $\rightarrow$ **Pages**.
 3. Under **Branch**, select `main` branch and `/ (root)` folder, then click **Save**.
-4. Your dashboard will be live at: `https://<your-username>.github.io/<repo-name>/`!
+4. Your dashboard will be live at: `https://Anshika04122004.github.io/netflix-recommendation-system/`!
 
 ---
 
