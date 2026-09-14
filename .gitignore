@@ -17,3 +17,8 @@ Thumbs.db
 
 # Large / Temp logs
 *.log
+
+# Assessment brief & Raw dataset
+*.pdf
+Dataset.csv
+
