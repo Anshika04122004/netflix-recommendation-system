@@ -1,0 +1,51 @@
+query_title,title,type,listed_in,rating,release_year,country,similarity_score
+Midnight Mass,Brand New Cherry Flavor,TV Show,"TV Dramas, TV Horror, TV Mysteries",TV-MA,2021,United States,0.7027
+Midnight Mass,The Haunting of Bly Manor,TV Show,"TV Dramas, TV Horror, TV Mysteries",TV-MA,2020,United States,0.7027
+Midnight Mass,Ratched,TV Show,"TV Dramas, TV Horror, TV Mysteries",TV-MA,2020,United States,0.7027
+Midnight Mass,The Haunting of Hill House,TV Show,"TV Dramas, TV Horror, TV Mysteries",TV-MA,2018,United States,0.6819
+Midnight Mass,The Originals,TV Show,"TV Dramas, TV Horror, TV Mysteries",TV-14,2018,United States,0.6589
+Midnight Mass,The Mist,TV Show,"TV Dramas, TV Horror, TV Mysteries",TV-MA,2017,Canada,0.6292
+Midnight Mass,Lost Girl,TV Show,"TV Dramas, TV Horror, TV Mysteries",TV-14,2015,Canada,0.6077
+Midnight Mass,Penny Dreadful,TV Show,"TV Dramas, TV Horror, TV Mysteries",TV-MA,2016,Ireland,0.588
+Midnight Mass,Gerald's Game,Movie,"Horror Movies, Thrillers",TV-MA,2017,United States,0.4583
+Midnight Mass,Hush,Movie,"Horror Movies, Thrillers",R,2016,United States,0.4533
+Ganglands,Dealer,TV Show,"Crime TV Shows, International TV Shows, TV Action & Adventure",TV-MA,2021,France,0.7472
+Ganglands,Lupin,TV Show,"Crime TV Shows, International TV Shows, TV Action & Adventure",TV-MA,2021,France,0.6728
+Ganglands,Bangkok Breaking,TV Show,"Crime TV Shows, International TV Shows, TV Action & Adventure",TV-MA,2021,Not Given,0.6616
+Ganglands,Crime Time,TV Show,"Crime TV Shows, International TV Shows, TV Action & Adventure",TV-MA,2017,France,0.6514
+Ganglands,Nowhere Man,TV Show,"Crime TV Shows, International TV Shows, TV Action & Adventure",TV-MA,2019,Taiwan,0.6268
+Ganglands,Fatal Destiny,TV Show,"Crime TV Shows, International TV Shows, TV Action & Adventure",TV-MA,2016,Pakistan,0.5909
+Ganglands,Smoking,TV Show,"Crime TV Shows, International TV Shows, TV Action & Adventure",TV-MA,2018,Japan,0.5805
+Ganglands,The Eagle of El-Se'eed,TV Show,"Crime TV Shows, International TV Shows, TV Action & Adventure",TV-14,2018,Pakistan,0.567
+Ganglands,Earth and Blood,Movie,"Dramas, International Movies, Thrillers",TV-MA,2020,France,0.5658
+Ganglands,Sentinelle,Movie,"Action & Adventure, Dramas, International Movies",TV-MA,2021,France,0.5653
+Dick Johnson Is Dead,Giving Voice,Movie,Documentaries,PG-13,2020,United States,1.0
+Dick Johnson Is Dead,Final Account,Movie,Documentaries,PG-13,2021,United Kingdom,0.9151
+Dick Johnson Is Dead,A Murder in the Park,Movie,Documentaries,PG-13,2014,United States,0.8249
+Dick Johnson Is Dead,Blackfish,Movie,Documentaries,PG-13,2013,United States,0.8249
+Dick Johnson Is Dead,Good Hair,Movie,Documentaries,PG-13,2009,United States,0.7954
+Dick Johnson Is Dead,Why Did You Kill Me?,Movie,Documentaries,TV-MA,2021,United States,0.7627
+Dick Johnson Is Dead,In Our Mothers' Gardens,Movie,Documentaries,TV-MA,2020,United States,0.7627
+Dick Johnson Is Dead,American Murder: The Family Next Door,Movie,Documentaries,TV-MA,2020,United States,0.7627
+Dick Johnson Is Dead,Making The Witcher,Movie,Documentaries,TV-MA,2020,United States,0.7627
+Dick Johnson Is Dead,Have a Good Trip: Adventures in Psychedelics,Movie,Documentaries,TV-MA,2020,United States,0.7627
+The Crown,Behind Her Eyes,TV Show,"British TV Shows, International TV Shows, TV Dramas",TV-MA,2021,United Kingdom,1.0
+The Crown,Black Mirror,TV Show,"British TV Shows, International TV Shows, TV Dramas",TV-MA,2019,United Kingdom,0.9757
+The Crown,Traitors,TV Show,"British TV Shows, International TV Shows, TV Dramas",TV-MA,2019,United Kingdom,0.9757
+The Crown,Black Earth Rising,TV Show,"British TV Shows, International TV Shows, TV Dramas",TV-MA,2018,United Kingdom,0.9757
+The Crown,Requiem,TV Show,"British TV Shows, International TV Shows, TV Dramas",TV-MA,2018,United Kingdom,0.9757
+The Crown,Downton Abbey,TV Show,"British TV Shows, International TV Shows, TV Dramas",TV-14,2015,United Kingdom,0.9459
+The Crown,Land Girls,TV Show,"British TV Shows, International TV Shows, TV Dramas",TV-14,2011,United Kingdom,0.9459
+The Crown,The English Game,TV Show,"British TV Shows, International TV Shows, TV Dramas",TV-14,2020,United Kingdom,0.9456
+The Crown,Dracula,TV Show,"British TV Shows, International TV Shows, TV Dramas",TV-14,2020,United Kingdom,0.9456
+The Crown,The A List,TV Show,"British TV Shows, International TV Shows, TV Dramas",TV-PG,2021,United Kingdom,0.9289
+Squid Game,Kakegurui,TV Show,"International TV Shows, TV Dramas, TV Thrillers",TV-MA,2019,Pakistan,0.9764
+Squid Game,Fatma,TV Show,"International TV Shows, TV Dramas, TV Thrillers",TV-MA,2021,Turkey,0.8626
+Squid Game,50M2,TV Show,"International TV Shows, TV Dramas, TV Thrillers",TV-MA,2021,Turkey,0.8626
+Squid Game,The Spy,TV Show,"International TV Shows, TV Dramas, TV Thrillers",TV-MA,2019,France,0.8557
+Squid Game,Marseille,TV Show,"International TV Shows, TV Dramas, TV Thrillers",TV-MA,2018,France,0.8557
+Squid Game,Winter Sun,TV Show,"International TV Shows, TV Dramas, TV Thrillers",TV-MA,2014,Turkey,0.8384
+Squid Game,Occupied,TV Show,"International TV Shows, TV Dramas, TV Thrillers",TV-MA,2019,Norway,0.8062
+Squid Game,Til Death Do Us Part,TV Show,"International TV Shows, TV Dramas, TV Thrillers",TV-MA,2019,Taiwan,0.7979
+Squid Game,Children of Adam,TV Show,"International TV Shows, TV Dramas, TV Thrillers",TV-14,2020,Lebanon,0.7797
+Squid Game,Gonul,TV Show,"International TV Shows, TV Dramas, TV Thrillers",TV-14,2015,Turkey,0.7622

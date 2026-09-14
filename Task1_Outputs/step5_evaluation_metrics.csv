@@ -1,0 +1,201 @@
+query,type,avg_genre_overlap,intra_list_diversity,avg_similarity,type_consistency,n_recs
+Kiss & Cry,Movie,0.9333,0.2537,0.5243,1.0,10
+Beating Again,TV Show,1.0,0.0,1.0,1.0,10
+Running Man,TV Show,1.0,0.0556,0.9646,1.0,10
+Farce,Movie,1.0,0.1558,0.9044,1.0,10
+Pretty Little Stalker,Movie,1.0,0.033,0.9816,1.0,10
+Dany Boon: Des Hauts De France,Movie,1.0,0.0446,0.9498,1.0,10
+Story of Kale: When Someone's in Love,Movie,0.9333,0.375,0.6098,1.0,10
+Bachelor Girls,Movie,1.0,0.0941,0.9335,1.0,10
+John Mellencamp: Plain Spoken,Movie,1.0,0.1776,0.8263,1.0,10
+Bayonet,Movie,1.0,0.1192,0.8564,1.0,10
+Time Is Illmatic,Movie,1.0,0.0,1.0,1.0,10
+The K2,TV Show,1.0,0.0,1.0,1.0,10
+Sex/Life,TV Show,0.85,0.2984,0.8382,1.0,10
+Trial 4,TV Show,1.0,0.0,1.0,1.0,10
+Sarbath,Movie,1.0,0.023,0.8964,1.0,10
+Funan,Movie,1.0,0.1517,0.8734,1.0,10
+Bhangra Paa Le,Movie,1.0,0.0,1.0,1.0,10
+Generation Iron 3,Movie,1.0,0.1836,0.7421,1.0,10
+Escape from Planet Earth,Movie,1.0,0.1812,0.8952,1.0,10
+House of Cards,TV Show,0.55,0.3777,0.5927,1.0,10
+Rosemary's Baby,Movie,0.2667,0.7992,0.3919,0.9,10
+Because of Soccer,Movie,1.0,0.1985,0.8349,1.0,10
+Would You Rather,Movie,1.0,0.1835,0.899,1.0,10
+Backfire,Movie,1.0,0.0206,0.9867,1.0,10
+Tarzan,Movie,1.0,0.2136,0.5116,1.0,10
+Stoked,TV Show,1.0,0.0949,0.924,1.0,10
+Natalie Palamides: Nate - A One Man Show,Movie,1.0,0.0195,0.956,1.0,10
+Wet Hot American Summer,TV Show,1.0,0.0,1.0,1.0,10
+King of Boys,Movie,0.9,0.4146,0.5765,0.9,10
+Detention Letter,Movie,0.95,0.4072,0.5971,1.0,10
+Bridgerton,TV Show,0.85,0.2984,0.8382,1.0,10
+Among Family,Movie,0.8,0.533,0.6648,1.0,10
+Damnation,TV Show,1.0,0.0,1.0,1.0,10
+I Dream Of Dance,Movie,0.85,0.4694,0.7013,1.0,10
+"Coronavirus, Explained",TV Show,1.0,0.1058,0.9161,1.0,10
+Notes for My Son,Movie,1.0,0.1996,0.8547,1.0,10
+Carmen Sandiego,TV Show,0.75,0.5958,0.5479,1.0,10
+XXx,Movie,0.3,0.7235,0.2615,1.0,10
+The House of Flowers Presents: The Funeral,Movie,0.9,0.2981,0.5821,1.0,10
+6-5=2,Movie,1.0,0.0669,0.9534,1.0,10
+Perdida,Movie,1.0,0.1668,0.5751,1.0,10
+The Model,Movie,1.0,0.082,0.7832,1.0,10
+Eden,TV Show,1.0,0.1481,0.8487,1.0,10
+Born Strong,Movie,1.0,0.0,1.0,1.0,10
+How to Be Really Bad,Movie,1.0,0.1582,0.8837,1.0,10
+Bird Box,Movie,0.8,0.5463,0.5452,1.0,10
+Emicida: AmarElo - Live in São Paulo,Movie,1.0,0.1722,0.8845,1.0,10
+Maria Bamford: The Special Special Special,Movie,1.0,0.0,1.0,1.0,10
+Happy Endings,TV Show,1.0,0.0,1.0,1.0,10
+Towies,TV Show,1.0,0.0834,0.9363,1.0,10
+Siren,Movie,1.0,0.0375,0.9755,1.0,10
+BLACKPINK: Light Up the Sky,Movie,1.0,0.0679,0.9062,1.0,10
+Los Niños Héroes de Chapultepec,Movie,1.0,0.1146,0.9115,1.0,10
+My Little Pony: Friendship Is Magic,TV Show,1.0,0.0,1.0,1.0,10
+Tip the Mouse,TV Show,1.0,0.0538,0.8609,1.0,10
+Avengement,Movie,1.0,0.2147,0.6394,1.0,10
+What Makes a Psychopath?,Movie,1.0,0.0671,0.9293,1.0,10
+Kygo: Live at the Hollywood Bowl,Movie,0.9,0.477,0.7225,1.0,10
+Dating Around: Brazil,TV Show,0.9,0.409,0.6787,1.0,10
+Breath,Movie,1.0,0.2127,0.8008,1.0,10
+Our Planet,TV Show,1.0,0.1318,0.6568,1.0,10
+5 to 7,Movie,1.0,0.2324,0.8579,1.0,10
+Being Elmo: A Puppeteer's Journey,Movie,1.0,0.132,0.8929,1.0,10
+The Crowned Clown,TV Show,1.0,0.1185,0.8838,1.0,10
+Loving,Movie,1.0,0.0431,0.7059,1.0,10
+Still Game,TV Show,0.3667,0.675,0.3739,0.9,10
+Monster High: Freaky Fusion,Movie,1.0,0.1821,0.7269,1.0,10
+Sex Doll,Movie,0.9667,0.3164,0.5005,1.0,10
+The Woods,TV Show,1.0,0.1936,0.8496,1.0,10
+Murderous Affairs,TV Show,1.0,0.0,1.0,1.0,10
+Dinotrux,TV Show,1.0,0.0,1.0,1.0,10
+SAS: Rise of the Black Swan,Movie,1.0,0.1062,0.823,1.0,10
+Eric Andre: Legalize Everything,Movie,1.0,0.0222,0.9833,1.0,10
+Shiva VS Autobots,Movie,1.0,0.2633,0.7574,1.0,10
+Unauthorized Living,TV Show,1.0,0.01,0.9925,1.0,10
+Haters Back Off,TV Show,0.65,0.5118,0.6352,1.0,10
+"Best Wishes, Warmest Regards: A Schitt's Creek Farewell",Movie,1.0,0.0356,0.9103,1.0,10
+The Laundromat,Movie,1.0,0.1026,0.6967,1.0,10
+Marc Maron: End Times Fun,Movie,1.0,0.0856,0.691,1.0,10
+Love Ni Bhavai,Movie,1.0,0.0669,0.9595,1.0,10
+Something in the Rain,TV Show,1.0,0.0066,0.9967,1.0,10
+The Reliant,Movie,1.0,0.079,0.9189,1.0,10
+Jack Whitehall: Travels with My Father,TV Show,1.0,0.0417,0.9574,1.0,10
+A Thin Line Between Love & Hate,Movie,1.0,0.0471,0.8739,1.0,10
+Baby Ballroom,TV Show,1.0,0.0394,0.9642,1.0,10
+Diamonds in the Sky,Movie,0.9,0.4894,0.6869,1.0,10
+Canvas,Movie,1.0,0.1178,0.8821,1.0,10
+Paquita Salas,TV Show,1.0,0.0576,0.9189,1.0,10
+A Perfect Man,Movie,1.0,0.1361,0.9024,1.0,10
+Ugly,Movie,1.0,0.0653,0.5739,1.0,10
+Rhyme Time Town Singalongs,TV Show,1.0,0.0,1.0,1.0,10
+Ave Maryam,Movie,1.0,0.1322,0.7853,1.0,10
+Movie 43,Movie,1.0,0.1935,0.6255,1.0,10
+Anarkali of Aarah,Movie,1.0,0.0,1.0,1.0,10
+Ghadi,Movie,1.0,0.1409,0.7591,1.0,10
+Sentinelle,Movie,0.8667,0.4047,0.5911,0.9,10
+NOVA: Thai Cave Rescue,Movie,1.0,0.0,1.0,1.0,10
+Kiss the Ground,Movie,1.0,0.0986,0.8203,1.0,10
+Spirit Riding Free: Riding Academy,TV Show,1.0,0.0382,0.9656,1.0,10
+Irreplaceable You,Movie,1.0,0.0843,0.9196,1.0,10
+Sisters,TV Show,1.0,0.1567,0.8513,1.0,10
+Oh My Ghost 3,Movie,0.9667,0.3998,0.6725,1.0,10
+I Think You Should Leave with Tim Robinson,TV Show,1.0,0.0,1.0,1.0,10
+Beyblade Burst Turbo,TV Show,1.0,0.0618,0.9536,1.0,10
+Pine Gap,TV Show,1.0,0.2215,0.7498,1.0,10
+Kaakan,Movie,1.0,0.1241,0.9231,1.0,10
+Krish Trish and Baltiboy: Best Friends Forever,Movie,1.0,0.2632,0.6309,1.0,10
+Hadi İnşallah,Movie,0.9667,0.285,0.581,1.0,10
+The Last Blockbuster,Movie,1.0,0.0958,0.9418,1.0,10
+Underworld,Movie,1.0,0.3018,0.8243,1.0,10
+My Heroes Were Cowboys,Movie,1.0,0.1876,0.7467,1.0,10
+Knock Knock,Movie,1.0,0.0287,0.6507,1.0,10
+Serious Men,Movie,0.9,0.4585,0.5939,1.0,10
+Unchained: The Untold Story of Freestyle Motocross,Movie,1.0,0.0,1.0,1.0,10
+The Body Remembers When the World Broke Open,Movie,1.0,0.035,0.9213,1.0,10
+All Hallows' Eve,Movie,0.15,0.3595,0.3073,1.0,10
+Pocoyo Carnival,Movie,1.0,0.0931,0.947,1.0,10
+Put Your Head on My Shoulder,TV Show,0.6,0.6022,0.4777,1.0,10
+Icarus,Movie,1.0,0.0,1.0,1.0,10
+This Is Not What I Expected,Movie,1.0,0.1762,0.7883,1.0,10
+Who Killed Malcolm X?,TV Show,1.0,0.0,1.0,1.0,10
+A Secret Love,Movie,1.0,0.0338,0.9405,1.0,10
+Social Animals,Movie,1.0,0.0,1.0,1.0,10
+Power Rangers S.P.D.,TV Show,1.0,0.0303,0.983,1.0,10
+American Crime Story: The People v. O.J. Simpson,TV Show,1.0,0.0,1.0,1.0,10
+La Mante,TV Show,1.0,0.0959,0.9334,1.0,10
+Rahasya,Movie,1.0,0.0,1.0,1.0,10
+Ask the Doctor,TV Show,1.0,0.1568,0.897,1.0,10
+Mad Men,TV Show,1.0,0.0,1.0,1.0,10
+The Man Who Feels No Pain,Movie,1.0,0.1232,0.9287,1.0,10
+ReMastered: Who Killed Jam Master Jay?,Movie,1.0,0.0882,0.6345,1.0,10
+Bigflo & Oli: Hip Hop Frenzy,Movie,1.0,0.1382,0.8695,1.0,10
+Gaga: Five Foot Two,Movie,1.0,0.0,1.0,1.0,10
+Without Gorky,Movie,1.0,0.2332,0.5557,1.0,10
+Acts of Violence,Movie,1.0,0.0495,0.9257,1.0,10
+Class of '83,Movie,1.0,0.0,0.9287,1.0,10
+The Little Mermaid,Movie,1.0,0.1107,0.8814,1.0,10
+Silent,Movie,0.8,0.4964,0.6523,0.9,10
+Young Adult,Movie,1.0,0.0,0.611,1.0,10
+Bling Empire - The Afterparty,Movie,1.0,0.2139,0.6743,1.0,10
+The Bucket List,Movie,1.0,0.0726,0.6702,1.0,10
+Tayo the Little Bus Movie: Mission Ace,Movie,1.0,0.0,0.714,1.0,10
+Tobot,TV Show,1.0,0.0574,0.9106,1.0,10
+Elstree 1976,Movie,1.0,0.0545,0.9592,1.0,10
+The Edge of Seventeen,Movie,1.0,0.0634,0.9618,1.0,10
+Evil,TV Show,1.0,0.0,1.0,1.0,10
+Paris Is Burning,Movie,0.0,0.5985,0.5004,1.0,10
+GAME ON: A Comedy Crossover Event,TV Show,1.0,0.0426,0.9591,1.0,10
+Cold Harbour,Movie,1.0,0.1199,0.7785,1.0,10
+Maggie & Bianca: Fashion Friends,TV Show,0.95,0.2415,0.6729,1.0,10
+Away From Home,TV Show,1.0,0.0324,0.9818,1.0,10
+Where the Money Is,Movie,1.0,0.0581,0.7955,1.0,10
+Voltron: Legendary Defender,TV Show,1.0,0.0,1.0,1.0,10
+The Great Raid,Movie,1.0,0.0714,0.6397,1.0,10
+Jackpot,Movie,1.0,0.0,0.7147,1.0,10
+Red Snow,Movie,1.0,0.0819,0.9082,1.0,10
+Cracked Up: The Darrell Hammond Story,Movie,1.0,0.0,1.0,1.0,10
+Outback Truckers,TV Show,1.0,0.0889,0.845,1.0,10
+The Investigator: A British Crime Story,TV Show,1.0,0.0305,0.979,1.0,10
+The Tenth Man,Movie,1.0,0.1788,0.8673,1.0,10
+Mars Attacks!,Movie,0.2333,0.7609,0.3913,0.8,10
+Charlie's Colorforms City,TV Show,1.0,0.0,1.0,1.0,10
+Tezz,Movie,1.0,0.2969,0.6197,1.0,10
+Love Cheque Charge,TV Show,1.0,0.0,1.0,1.0,10
+Da Kath & Kim Code,Movie,0.9,0.3161,0.5677,1.0,10
+Vir Das: Losing It,Movie,1.0,0.0,1.0,1.0,10
+Because We're Heading Out,Movie,1.0,0.2653,0.5987,1.0,10
+Jo Pil-ho: The Dawning Rage,Movie,1.0,0.0756,0.8953,1.0,10
+Prank Encounters,TV Show,0.4,0.2124,0.3608,1.0,10
+Sirius the Jaeger,TV Show,0.6333,0.6073,0.5291,1.0,10
+Four Christmases,Movie,1.0,0.0525,0.8614,1.0,10
+So Not Worth It,TV Show,1.0,0.1364,0.8971,1.0,10
+Million Pound Menu,TV Show,1.0,0.0394,0.9642,1.0,10
+"My Schoolmate, the Barbarian",Movie,1.0,0.1196,0.8003,1.0,10
+Peasants Rebellion,TV Show,1.0,0.0887,0.7467,1.0,10
+The Curious Creations of Christine McConnell,TV Show,0.25,0.4109,0.7242,1.0,10
+Hello Brother,Movie,1.0,0.1052,0.8483,1.0,10
+It Takes a Man and a Woman,Movie,0.7,0.1898,0.7288,1.0,10
+Dil Vil Pyaar Vyaar,Movie,0.6667,0.5905,0.4929,1.0,10
+Boys Over Flowers,TV Show,1.0,0.0,0.9491,1.0,10
+Nila,Movie,1.0,0.0555,0.9596,1.0,10
+The Hollywood Masters,TV Show,1.0,0.4888,0.6721,1.0,10
+Eyes of a Thief,Movie,1.0,0.1132,0.5688,1.0,10
+Hell and Back,Movie,0.7,0.6233,0.5691,1.0,10
+Dawn of the Croods,TV Show,1.0,0.0,1.0,1.0,10
+The Pursuit,Movie,1.0,0.0,1.0,1.0,10
+Gina Yashere: Laughing to America,Movie,1.0,0.0372,0.9776,1.0,10
+Swearnet Live,Movie,0.8,0.3803,0.5623,1.0,10
+Chhota Bheem And The Broken Amulet,Movie,1.0,0.0,1.0,1.0,10
+Barbie Dolphin Magic,Movie,1.0,0.2003,0.6611,1.0,10
+Velvet Buzzsaw,Movie,1.0,0.1984,0.6257,1.0,10
+Bilu Rakkhosh,Movie,1.0,0.0,1.0,1.0,10
+Harlem Globetrotters: The Team That Changed the World,Movie,1.0,0.1504,0.7626,1.0,10
+Gilmore Girls,TV Show,1.0,0.1016,0.9113,1.0,10
+Secrets of the Saqqara Tomb,Movie,1.0,0.0702,0.921,1.0,10
+The Magic School Bus Rides Again In the Zone,Movie,1.0,0.2137,0.6553,1.0,10
+Four Sisters Before the Wedding,Movie,0.8333,0.5563,0.6077,1.0,10
+Find Yourself,TV Show,1.0,0.0098,0.9561,1.0,10
+Survivors Guide to Prison,Movie,1.0,0.0,1.0,1.0,10
+Ophelia,Movie,1.0,0.0623,0.9425,1.0,10

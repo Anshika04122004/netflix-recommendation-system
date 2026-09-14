@@ -1,0 +1,19 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+
+# IDE / System
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Large / Temp logs
+*.log
