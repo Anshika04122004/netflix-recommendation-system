@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Netflix Content Type Intelligence & Machine Learning Analytics Dashboard">
+    <title>Netflix ML Analytics & Content Type Predictor</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        stone: {
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            200: '#e7e5e4',
+                            300: '#d6d3d1',
+                            400: '#a8a29e',
+                            500: '#78716c',
+                            600: '#57534e',
+                            700: '#44403c',
+                            800: '#292524',
+                            900: '#1c1917',
+                            950: '#0c0a09',
+                        },
+                        brand: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                            700: '#be123c',
+                            800: '#9f1239',
+                        },
+                        slate: {
+                            850: '#172033',
+                            900: '#0f172a',
+                            950: '#080d1a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+        }
+        .gauge-circle {
+            transition: stroke-dashoffset 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        /* Subtle scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 9999px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #334155;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-slate-800 antialiased min-h-screen flex flex-col font-sans transition-colors duration-200">
+
+    <!-- Top Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200 shadow-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Brand Identity -->
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white font-bold text-sm shadow-xs">
+                    N
+                </div>
+                <div>
+                    <span class="font-semibold text-slate-900 tracking-tight text-base block leading-tight">Netflix ML Analytics</span>
+                    <span class="text-xs text-stone-500 font-medium">Content Type Classification</span>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-1 text-sm font-medium text-stone-600">
+                <a href="#overview" class="px-3 py-1.5 rounded-md hover:text-slate-900 hover:bg-stone-100 transition-colors">Overview</a>
+                <a href="#predictor" class="px-3 py-1.5 rounded-md hover:text-slate-900 hover:bg-stone-100 transition-colors">Live Predictor</a>
+                <a href="#benchmarks" class="px-3 py-1.5 rounded-md hover:text-slate-900 hover:bg-stone-100 transition-colors">Model Benchmarks</a>
+                <a href="#diagnostics" class="px-3 py-1.5 rounded-md hover:text-slate-900 hover:bg-stone-100 transition-colors">EDA & Diagnostics</a>
+                <a href="#catalog" class="px-3 py-1.5 rounded-md hover:text-slate-900 hover:bg-stone-100 transition-colors">Dataset Catalog</a>
+            </nav>
+
+            <!-- Status Badge & CTA -->
+            <div class="flex items-center space-x-3">
+                <div class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-700 text-xs font-medium">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span>Model Online (v1.0)</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full space-y-10">
+
+        <!-- Executive Overview Hero -->
+        <section id="overview" class="bg-white rounded-2xl border border-stone-200/80 p-6 sm:p-8 shadow-xs">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-brand-700 bg-brand-50 border border-brand-100 px-2.5 py-1 rounded-md mb-3">
+                    Supervised Classification Pipeline
+                </div>
+                <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-tight">
+                    Netflix Content Type Intelligence System
+                </h1>
+                <p class="mt-2 text-stone-600 text-sm sm:text-base leading-relaxed">
+                    A leak-free, multi-modal machine learning pipeline that accurately predicts whether a catalog entry is a 
+                    <span class="font-semibold text-slate-900">Movie</span> or <span class="font-semibold text-slate-900">TV Show</span> 
+                    using metadata, natural language title representations, temporal release patterns, and audience certification hierarchies.
+                </p>
+            </div>
+
+            <!-- Key Statistical KPIs -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 pt-6 border-t border-stone-100">
+                <div class="p-4 rounded-xl bg-stone-50/80 border border-stone-100">
+                    <div class="text-xs font-medium text-stone-500 uppercase tracking-wide">Test Accuracy</div>
+                    <div class="text-2xl sm:text-3xl font-bold text-slate-900 mt-1" id="kpiAccuracy">97.10%</div>
+                    <div class="text-xs text-emerald-600 font-medium mt-0.5">Top-tier benchmark</div>
+                </div>
+                <div class="p-4 rounded-xl bg-stone-50/80 border border-stone-100">
+                    <div class="text-xs font-medium text-stone-500 uppercase tracking-wide">ROC-AUC Score</div>
+                    <div class="text-2xl sm:text-3xl font-bold text-slate-900 mt-1" id="kpiRocAuc">0.9946</div>
+                    <div class="text-xs text-emerald-600 font-medium mt-0.5">5-Fold Stratified CV</div>
+                </div>
+                <div class="p-4 rounded-xl bg-stone-50/80 border border-stone-100">
+                    <div class="text-xs font-medium text-stone-500 uppercase tracking-wide">Macro F1-Score</div>
+                    <div class="text-2xl sm:text-3xl font-bold text-slate-900 mt-1" id="kpiF1">95.21%</div>
+                    <div class="text-xs text-stone-500 font-medium mt-0.5">Balanced precision/recall</div>
+                </div>
+                <div class="p-4 rounded-xl bg-stone-50/80 border border-stone-100">
+                    <div class="text-xs font-medium text-stone-500 uppercase tracking-wide">Verified Titles</div>
+                    <div class="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">8,790</div>
+                    <div class="text-xs text-stone-500 font-medium mt-0.5">Netflix catalog (1925-2021)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Content Predictor Panel -->
+        <section id="predictor" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            
+            <!-- Left: Interactive Form (7 cols) -->
+            <div class="lg:col-span-7 bg-white rounded-2xl border border-stone-200/80 p-6 shadow-xs flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h2 class="text-lg font-bold text-slate-900">Live Content Type Predictor</h2>
+                            <p class="text-xs text-stone-500">Provide title attributes to execute real-time inference against the trained ensemble model.</p>
+                        </div>
+                    </div>
+
+                    <!-- Preset Pills -->
+                    <div class="mb-5">
+                        <span class="text-xs font-medium text-stone-500 block mb-2">Quick-Fill Presets:</span>
+                        <div class="flex flex-wrap gap-2">
+                            <button type="button" onclick="loadPreset('movie_scifi')" class="px-2.5 py-1 text-xs font-medium rounded-md bg-stone-100 text-stone-700 hover:bg-stone-200 hover:text-slate-900 transition-colors border border-stone-200/60">
+                                🚀 Sci-Fi Film (Interstellar)
+                            </button>
+                            <button type="button" onclick="loadPreset('tv_drama')" class="px-2.5 py-1 text-xs font-medium rounded-md bg-stone-100 text-stone-700 hover:bg-stone-200 hover:text-slate-900 transition-colors border border-stone-200/60">
+                                📺 TV Drama (Breaking Bad)
+                            </button>
+                            <button type="button" onclick="loadPreset('docuseries')" class="px-2.5 py-1 text-xs font-medium rounded-md bg-stone-100 text-stone-700 hover:bg-stone-200 hover:text-slate-900 transition-colors border border-stone-200/60">
+                                🔍 Docuseries (Planet Earth)
+                            </button>
+                            <button type="button" onclick="loadPreset('indie_movie')" class="px-2.5 py-1 text-xs font-medium rounded-md bg-stone-100 text-stone-700 hover:bg-stone-200 hover:text-slate-900 transition-colors border border-stone-200/60">
+                                🎨 Indie Movie (Roma)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Form -->
+                    <form id="predictionForm" onsubmit="handlePrediction(event)" class="space-y-4">
+                        <div>
+                            <label for="titleInput" class="block text-xs font-semibold text-stone-700 mb-1">Title Name *</label>
+                            <input type="text" id="titleInput" required placeholder="e.g. Inception, Stranger Things" value="Stranger Things"
+                                class="w-full px-3 py-2 text-sm rounded-lg border border-stone-300 bg-stone-50/50 text-slate-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="directorInput" class="block text-xs font-semibold text-stone-700 mb-1">Director (or 'Unknown')</label>
+                                <input type="text" id="directorInput" placeholder="e.g. Christopher Nolan or Unknown" value="Unknown"
+                                    class="w-full px-3 py-2 text-sm rounded-lg border border-stone-300 bg-stone-50/50 text-slate-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition">
+                            </div>
+                            <div>
+                                <label for="countryInput" class="block text-xs font-semibold text-stone-700 mb-1">Country of Origin</label>
+                                <input type="text" id="countryInput" placeholder="e.g. United States, United Kingdom" value="United States"
+                                    class="w-full px-3 py-2 text-sm rounded-lg border border-stone-300 bg-stone-50/50 text-slate-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="yearInput" class="block text-xs font-semibold text-stone-700 mb-1">Release Year</label>
+                                <input type="number" id="yearInput" min="1900" max="2030" value="2016"
+                                    class="w-full px-3 py-2 text-sm rounded-lg border border-stone-300 bg-stone-50/50 text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition">
+                            </div>
+                            <div>
+                                <label for="ratingInput" class="block text-xs font-semibold text-stone-700 mb-1">Parental Rating</label>
+                                <select id="ratingInput"
+                                    class="w-full px-3 py-2 text-sm rounded-lg border border-stone-300 bg-stone-50/50 text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition">
+                                    <option value="TV-MA" selected>TV-MA (Mature Audience)</option>
+                                    <option value="TV-14">TV-14 (Parents Strongly Cautioned)</option>
+                                    <option value="TV-PG">TV-PG (Parental Guidance)</option>
+                                    <option value="TV-Y">TV-Y (All Children)</option>
+                                    <option value="TV-Y7">TV-Y7 (Children 7+)</option>
+                                    <option value="TV-G">TV-G (General Audience)</option>
+                                    <option value="R">R (Restricted 17+)</option>
+                                    <option value="PG-13">PG-13 (Parents Strongly Cautioned)</option>
+                                    <option value="PG">PG (Parental Guidance)</option>
+                                    <option value="G">G (General)</option>
+                                    <option value="NR">NR / Not Rated</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="genresInput" class="block text-xs font-semibold text-stone-700 mb-1">Genres & Categories (listed_in)</label>
+                            <input type="text" id="genresInput" placeholder="e.g. TV Dramas, TV Sci-Fi & Fantasy" value="TV Dramas, TV Sci-Fi & Fantasy, TV Mysteries"
+                                class="w-full px-3 py-2 text-sm rounded-lg border border-stone-300 bg-stone-50/50 text-slate-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition">
+                        </div>
+
+                        <div>
+                            <label for="dateAddedInput" class="block text-xs font-semibold text-stone-700 mb-1">Date Added to Platform</label>
+                            <input type="text" id="dateAddedInput" placeholder="MM/DD/YYYY" value="7/15/2016"
+                                class="w-full px-3 py-2 text-sm rounded-lg border border-stone-300 bg-stone-50/50 text-slate-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition">
+                        </div>
+
+                        <div class="pt-2">
+                            <button type="submit" id="predictBtn"
+                                class="w-full py-2.5 px-4 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm transition-all duration-150 shadow-xs flex items-center justify-center space-x-2">
+                                <span>Run Prediction</span>
+                                <svg class="w-4 h-4 text-stone-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Right: Real-time Output & Decision Confidence (5 cols) -->
+            <div class="lg:col-span-5 bg-white rounded-2xl border border-stone-200/80 p-6 shadow-xs flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between border-b border-stone-100 pb-3 mb-4">
+                        <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider">Prediction Output</h3>
+                        <span class="text-xs font-medium px-2 py-0.5 rounded bg-stone-100 text-stone-600">Champion Ensemble</span>
+                    </div>
+
+                    <!-- Gauge & Result Container -->
+                    <div class="flex flex-col items-center justify-center py-4 text-center">
+                        
+                        <!-- Circular Gauge SVG -->
+                        <div class="relative w-36 h-36 flex items-center justify-center">
+                            <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="42" stroke="currentColor" stroke-width="8" class="text-stone-100" fill="transparent" />
+                                <circle id="gaugeProgress" cx="50" cy="50" r="42" stroke="currentColor" stroke-width="8" class="text-brand-600 gauge-circle" 
+                                    fill="transparent" stroke-dasharray="263.89" stroke-dashoffset="20" stroke-linecap="round" />
+                            </svg>
+                            <div class="absolute flex flex-col items-center justify-center">
+                                <span class="text-2xl font-bold text-slate-900" id="predConfValue">94.7%</span>
+                                <span class="text-[10px] uppercase font-semibold text-stone-400 tracking-wider">Confidence</span>
+                            </div>
+                        </div>
+
+                        <!-- Class Result Tag -->
+                        <div class="mt-4">
+                            <span id="predResultBadge" class="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-bold bg-slate-900 text-white shadow-xs">
+                                TV Show
+                            </span>
+                        </div>
+                        <h4 id="predResultTitle" class="text-base font-semibold text-slate-800 mt-2">Stranger Things</h4>
+                    </div>
+
+                    <!-- Probability Distribution Breakdown -->
+                    <div class="mt-4 space-y-2 bg-stone-50 p-3.5 rounded-xl border border-stone-100">
+                        <div class="flex justify-between text-xs font-medium text-stone-600">
+                            <span>Movie Probability</span>
+                            <span class="font-mono font-semibold text-slate-800" id="probMovieText">5.3%</span>
+                        </div>
+                        <div class="w-full bg-stone-200 h-2 rounded-full overflow-hidden flex">
+                            <div id="probMovieBar" class="bg-amber-600 h-full transition-all duration-500" style="width: 5.3%;"></div>
+                            <div id="probTVBar" class="bg-slate-900 h-full transition-all duration-500" style="width: 94.7%;"></div>
+                        </div>
+                        <div class="flex justify-between text-xs font-medium text-stone-600 pt-1">
+                            <span>TV Show Probability</span>
+                            <span class="font-mono font-semibold text-slate-800" id="probTVText">94.7%</span>
+                        </div>
+                    </div>
+
+                    <!-- Decision Drivers & Interpretability -->
+                    <div class="mt-4">
+                        <h5 class="text-xs font-semibold uppercase tracking-wider text-stone-500 mb-2">Key Decision Drivers</h5>
+                        <ul id="decisionInsightsList" class="space-y-1.5 text-xs text-stone-600">
+                            <li class="flex items-start space-x-1.5">
+                                <span class="text-brand-600 font-bold">•</span>
+                                <span>Rating adheres to episodic broadcast standard (<span class="font-medium text-slate-800">TV-14</span>).</span>
+                            </li>
+                            <li class="flex items-start space-x-1.5">
+                                <span class="text-brand-600 font-bold">•</span>
+                                <span>Omission of single film director, characteristic of multi-episode television catalogs.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="pt-3 border-t border-stone-100 text-[11px] text-stone-400 text-center">
+                    Inference executed on leak-free feature matrix (137 tabular & text features).
+                </div>
+            </div>
+        </section>
+
+        <!-- Model Performance Matrix -->
+        <section id="benchmarks" class="bg-white rounded-2xl border border-stone-200/80 p-6 shadow-xs">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-stone-100 pb-5 mb-5">
+                <div>
+                    <h2 class="text-lg font-bold text-slate-900">Model Performance & Benchmark Matrix</h2>
+                    <p class="text-xs text-stone-500">Comparative evaluation across 9 machine learning algorithms tested on independent held-out test data.</p>
+                </div>
+                <!-- Metric Filter Tabs -->
+                <div class="inline-flex rounded-lg p-1 bg-stone-100 border border-stone-200/60 text-xs font-medium">
+                    <button onclick="sortBenchmark('roc_auc')" id="tabRoc" class="px-3 py-1.5 rounded-md bg-white text-slate-900 shadow-xs font-semibold transition">ROC-AUC</button>
+                    <button onclick="sortBenchmark('accuracy')" id="tabAcc" class="px-3 py-1.5 rounded-md text-stone-600 hover:text-slate-900 transition">Accuracy</button>
+                    <button onclick="sortBenchmark('f1_score')" id="tabF1" class="px-3 py-1.5 rounded-md text-stone-600 hover:text-slate-900 transition">F1 Score</button>
+                </div>
+            </div>
+
+            <!-- Benchmark Table -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm">
+                    <thead>
+                        <tr class="border-b border-stone-200 text-xs font-semibold text-stone-500 uppercase tracking-wider bg-stone-50/60">
+                            <th class="py-3 px-4">Classification Algorithm</th>
+                            <th class="py-3 px-4">Accuracy</th>
+                            <th class="py-3 px-4">Precision</th>
+                            <th class="py-3 px-4">Recall</th>
+                            <th class="py-3 px-4">F1-Score</th>
+                            <th class="py-3 px-4">ROC-AUC</th>
+                            <th class="py-3 px-4">PR-AUC</th>
+                            <th class="py-3 px-4">Log Loss</th>
+                        </tr>
+                    </thead>
+                    <tbody id="benchmarkTableBody" class="divide-y divide-stone-100 text-stone-700 font-sans">
+                        <!-- Populated via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-4 flex flex-wrap items-center justify-between text-xs text-stone-500 pt-3 border-t border-stone-100">
+                <span>Validation strategy: Stratified 5-Fold Cross-Validation with stratified test partition ($N=1,758$).</span>
+                <span class="font-medium text-slate-700">Champion: Soft Voting Ensemble (RF + GB + LR + ET)</span>
+            </div>
+        </section>
+
+        <!-- Visual EDA & Feature Insights (Diagnostics) -->
+        <section id="diagnostics" class="bg-white rounded-2xl border border-stone-200/80 p-6 shadow-xs">
+            <div class="border-b border-stone-100 pb-4 mb-6">
+                <h2 class="text-lg font-bold text-slate-900">Visual Diagnostics & Feature Interpretability</h2>
+                <p class="text-xs text-stone-500">Publication-grade diagnostic plots generated during model training, calibration, and exploratory data analysis.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Card 1: Confusion Matrix -->
+                <div class="rounded-xl border border-stone-200 overflow-hidden bg-stone-50/40 flex flex-col justify-between">
+                    <div class="p-4 bg-white border-b border-stone-100">
+                        <h3 class="text-sm font-semibold text-slate-900">Confusion Matrix (Champion Ensemble)</h3>
+                        <p class="text-xs text-stone-500">Accurate classification across both Movies (98.0%) and TV Shows (95.1%).</p>
+                    </div>
+                    <div class="p-4 flex items-center justify-center bg-white">
+                        <img src="/figures/confusion_matrix.png" alt="Confusion Matrix" class="max-h-72 object-contain rounded-lg border border-stone-100">
+                    </div>
+                    <div class="p-3 bg-stone-50 border-t border-stone-100 text-[11px] text-stone-500">
+                        Low False Positive rate (2.0%) confirms strong precision.
+                    </div>
+                </div>
+
+                <!-- Card 2: Feature Importance -->
+                <div class="rounded-xl border border-stone-200 overflow-hidden bg-stone-50/40 flex flex-col justify-between">
+                    <div class="p-4 bg-white border-b border-stone-100">
+                        <h3 class="text-sm font-semibold text-slate-900">Top Discriminative Features</h3>
+                        <p class="text-xs text-stone-500">Relative Gini impurity reduction highlighting key metadata and text signals.</p>
+                    </div>
+                    <div class="p-4 flex items-center justify-center bg-white">
+                        <img src="/figures/feature_importance.png" alt="Feature Importance" class="max-h-72 object-contain rounded-lg border border-stone-100">
+                    </div>
+                    <div class="p-3 bg-stone-50 border-t border-stone-100 text-[11px] text-stone-500">
+                        `has_director` and TV rating indicators dominate the decision boundary.
+                    </div>
+                </div>
+
+                <!-- Card 3: ROC & PR Curves -->
+                <div class="rounded-xl border border-stone-200 overflow-hidden bg-stone-50/40 flex flex-col justify-between">
+                    <div class="p-4 bg-white border-b border-stone-100">
+                        <h3 class="text-sm font-semibold text-slate-900">Receiver Operating Characteristic (ROC)</h3>
+                        <p class="text-xs text-stone-500">Comparative sensitivity vs specificity trade-offs across all models.</p>
+                    </div>
+                    <div class="p-4 flex items-center justify-center bg-white">
+                        <img src="/figures/roc_curves.png" alt="ROC Curves" class="max-h-72 object-contain rounded-lg border border-stone-100">
+                    </div>
+                    <div class="p-3 bg-stone-50 border-t border-stone-100 text-[11px] text-stone-500">
+                        High area under the curve (>0.99) across top ensembles.
+                    </div>
+                </div>
+
+                <!-- Card 4: Catalog Content Distribution -->
+                <div class="rounded-xl border border-stone-200 overflow-hidden bg-stone-50/40 flex flex-col justify-between">
+                    <div class="p-4 bg-white border-b border-stone-100">
+                        <h3 class="text-sm font-semibold text-slate-900">Catalog Content Distribution (EDA)</h3>
+                        <p class="text-xs text-stone-500">Class composition across 8,790 verified titles in the dataset.</p>
+                    </div>
+                    <div class="p-4 flex items-center justify-center bg-white">
+                        <img src="/figures/eda_content_distribution.png" alt="Content Distribution" class="max-h-72 object-contain rounded-lg border border-stone-100">
+                    </div>
+                    <div class="p-3 bg-stone-50 border-t border-stone-100 text-[11px] text-stone-500">
+                        Class ratio: 69.7% Movies vs 30.3% TV Shows.
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Dataset Explorer -->
+        <section id="catalog" class="bg-white rounded-2xl border border-stone-200/80 p-6 shadow-xs">
+            <div class="border-b border-stone-100 pb-4 mb-5">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-900">Dataset Explorer</h2>
+                        <p class="text-xs text-stone-500">Interactive, searchable Netflix catalog viewer backed by real-time server pagination.</p>
+                    </div>
+                    <div class="text-xs text-stone-500">
+                        Showing verified catalog records
+                    </div>
+                </div>
+
+                <!-- Search & Filters -->
+                <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 mt-4">
+                    <div class="sm:col-span-8">
+                        <div class="relative">
+                            <input type="text" id="catalogSearchInput" oninput="debounceCatalogSearch()"
+                                placeholder="Search by title, director, country, or genre..."
+                                class="w-full pl-9 pr-3 py-2 text-sm rounded-lg border border-stone-300 bg-stone-50/50 text-slate-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition">
+                            <svg class="w-4 h-4 text-stone-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="sm:col-span-4">
+                        <select id="catalogTypeSelect" onchange="fetchCatalog(1)"
+                            class="w-full px-3 py-2 text-sm rounded-lg border border-stone-300 bg-stone-50/50 text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition">
+                            <option value="ALL">All Categories</option>
+                            <option value="Movie">Movies Only</option>
+                            <option value="TV Show">TV Shows Only</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm">
+                    <thead>
+                        <tr class="border-b border-stone-200 text-xs font-semibold text-stone-500 uppercase tracking-wider bg-stone-50/60">
+                            <th class="py-2.5 px-3">Type</th>
+                            <th class="py-2.5 px-3">Title</th>
+                            <th class="py-2.5 px-3">Director</th>
+                            <th class="py-2.5 px-3">Country</th>
+                            <th class="py-2.5 px-3">Year</th>
+                            <th class="py-2.5 px-3">Rating</th>
+                            <th class="py-2.5 px-3">Categories</th>
+                        </tr>
+                    </thead>
+                    <tbody id="catalogTableBody" class="divide-y divide-stone-100 text-stone-700">
+                        <tr>
+                            <td colspan="7" class="py-6 text-center text-stone-400 text-xs">Loading catalog data...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination Bar -->
+            <div class="flex items-center justify-between border-t border-stone-100 pt-4 mt-4">
+                <button id="prevPageBtn" onclick="changeCatalogPage(-1)" disabled
+                    class="px-3 py-1.5 rounded-md border border-stone-200 bg-white text-xs font-medium text-stone-600 hover:bg-stone-50 disabled:opacity-40 disabled:cursor-not-allowed transition">
+                    ← Previous
+                </button>
+                <span id="catalogPaginationInfo" class="text-xs text-stone-500 font-medium">Page 1 of 1</span>
+                <button id="nextPageBtn" onclick="changeCatalogPage(1)"
+                    class="px-3 py-1.5 rounded-md border border-stone-200 bg-white text-xs font-medium text-stone-600 hover:bg-stone-50 disabled:opacity-40 disabled:cursor-not-allowed transition">
+                    Next →
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Clean Footer -->
+    <footer class="border-t border-stone-200 bg-white mt-12 py-6 text-stone-500 text-xs text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="font-medium text-slate-800">Netflix Content Type Prediction Model Pipeline</p>
+            <p class="mt-1 text-stone-400">Auspify Technologies Machine Learning Internship • Built with Scikit-Learn, FastAPI, & Tailwind CSS</p>
+        </div>
+    </footer>
+
+    <!-- Client-side Logic Script -->
+    <script>
+        // Preset configurations
+        const PRESETS = {
+            movie_scifi: {
+                title: "Interstellar",
+                director: "Christopher Nolan",
+                country: "United States, United Kingdom",
+                year: 2014,
+                rating: "PG-13",
+                genres: "Action & Adventure, Sci-Fi & Fantasy, Dramas",
+                dateAdded: "11/25/2020"
+            },
+            tv_drama: {
+                title: "Breaking Bad",
+                director: "Unknown",
+                country: "United States",
+                year: 2008,
+                rating: "TV-MA",
+                genres: "Crime TV Shows, TV Dramas, TV Thrillers",
+                dateAdded: "8/2/2013"
+            },
+            docuseries: {
+                title: "Planet Earth II",
+                director: "Unknown",
+                country: "United Kingdom",
+                year: 2016,
+                rating: "TV-G",
+                genres: "Docuseries, British TV Shows",
+                dateAdded: "12/25/2017"
+            },
+            indie_movie: {
+                title: "Roma",
+                director: "Alfonso Cuarón",
+                country: "Mexico, United States",
+                year: 2018,
+                rating: "R",
+                genres: "Dramas, Independent Movies, International Movies",
+                dateAdded: "12/14/2018"
+            }
+        };
+
+        // Static benchmark dataset fallback
+        const BENCHMARK_MODELS = [
+            { name: "Soft Voting Ensemble", champion: true, accuracy: 0.9710, precision: 0.9530, recall: 0.9512, f1: 0.9521, roc_auc: 0.9946, pr_auc: 0.9894, loss: 0.1075 },
+            { name: "Gradient Boosting (Tuned)", champion: false, accuracy: 0.9721, precision: 0.9549, recall: 0.9531, f1: 0.9540, roc_auc: 0.9945, pr_auc: 0.9887, loss: 0.0840 },
+            { name: "Stacking Ensemble", champion: false, accuracy: 0.9716, precision: 0.9514, recall: 0.9550, f1: 0.9532, roc_auc: 0.9944, pr_auc: 0.9892, loss: 0.1062 },
+            { name: "Random Forest (Tuned)", champion: false, accuracy: 0.9693, precision: 0.9527, recall: 0.9456, f1: 0.9492, roc_auc: 0.9934, pr_auc: 0.9867, loss: 0.1125 },
+            { name: "Extra Trees Classifier", champion: false, accuracy: 0.9687, precision: 0.9527, recall: 0.9437, f1: 0.9482, roc_auc: 0.9921, pr_auc: 0.9828, loss: 0.1748 },
+            { name: "Logistic Regression (L2)", champion: false, accuracy: 0.9681, precision: 0.9458, recall: 0.9493, f1: 0.9476, roc_auc: 0.9911, pr_auc: 0.9822, loss: 0.1069 },
+            { name: "Decision Tree", champion: false, accuracy: 0.9767, precision: 0.9650, recall: 0.9578, f1: 0.9614, roc_auc: 0.9798, pr_auc: 0.9612, loss: 0.1890 },
+            { name: "Support Vector Classifier", champion: false, accuracy: 0.9555, precision: 0.9619, recall: 0.8883, f1: 0.9236, roc_auc: 0.9843, pr_auc: 0.9680, loss: 0.1450 },
+            { name: "AdaBoost Classifier", champion: false, accuracy: 0.9562, precision: 0.9344, recall: 0.9202, f1: 0.9271, roc_auc: 0.9749, pr_auc: 0.9540, loss: 0.2100 },
+        ];
+
+        function loadPreset(key) {
+            const p = PRESETS[key];
+            if (!p) return;
+            document.getElementById('titleInput').value = p.title;
+            document.getElementById('directorInput').value = p.director;
+            document.getElementById('countryInput').value = p.country;
+            document.getElementById('yearInput').value = p.year;
+            document.getElementById('ratingInput').value = p.rating;
+            document.getElementById('genresInput').value = p.genres;
+            document.getElementById('dateAddedInput').value = p.dateAdded;
+
+            // Trigger prediction
+            document.getElementById('predictionForm').requestSubmit();
+        }
+
+        async function handlePrediction(event) {
+            event.preventDefault();
+            const btn = document.getElementById('predictBtn');
+            const origHTML = btn.innerHTML;
+            btn.innerHTML = '<span>Running inference...</span>';
+            btn.disabled = true;
+
+            const payload = {
+                title: document.getElementById('titleInput').value,
+                director: document.getElementById('directorInput').value,
+                country: document.getElementById('countryInput').value,
+                release_year: parseInt(document.getElementById('yearInput').value) || 2021,
+                rating: document.getElementById('ratingInput').value,
+                listed_in: document.getElementById('genresInput').value,
+                date_added: document.getElementById('dateAddedInput').value
+            };
+
+            try {
+                const res = await fetch('/api/predict', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const json = await res.json();
+                if (json.status === 'success') {
+                    updatePredictionUI(json.data);
+                } else {
+                    alert('Prediction failed: ' + (json.detail || 'Unknown error'));
+                }
+            } catch (err) {
+                console.error('Inference API error:', err);
+                alert('Connection error to ML inference backend.');
+            } finally {
+                btn.innerHTML = origHTML;
+                btn.disabled = false;
+            }
+        }
+
+        function updatePredictionUI(data) {
+            const isMovie = data.prediction === 'Movie';
+            const conf = data.confidence;
+            const probMovie = data.probabilities.Movie;
+            const probTV = data.probabilities['TV Show'];
+
+            // Update title & badge
+            document.getElementById('predResultTitle').textContent = data.title;
+            const badge = document.getElementById('predResultBadge');
+            badge.textContent = data.prediction;
+            if (isMovie) {
+                badge.className = 'inline-flex items-center px-4 py-1.5 rounded-full text-sm font-bold bg-amber-700 text-white shadow-xs';
+            } else {
+                badge.className = 'inline-flex items-center px-4 py-1.5 rounded-full text-sm font-bold bg-slate-900 text-white shadow-xs';
+            }
+
+            // Update gauge circle
+            document.getElementById('predConfValue').textContent = `${conf}%`;
+            const circumference = 2 * Math.PI * 42; // ~263.89
+            const offset = circumference - (conf / 100) * circumference;
+            const gauge = document.getElementById('gaugeProgress');
+            gauge.style.strokeDashoffset = offset;
+            gauge.className = isMovie ? 'text-amber-700 gauge-circle' : 'text-brand-600 gauge-circle';
+
+            // Update probability bars
+            document.getElementById('probMovieText').textContent = `${probMovie}%`;
+            document.getElementById('probTVText').textContent = `${probTV}%`;
+            document.getElementById('probMovieBar').style.width = `${probMovie}%`;
+            document.getElementById('probTVBar').style.width = `${probTV}%`;
+
+            // Update insights
+            const list = document.getElementById('decisionInsightsList');
+            list.innerHTML = '';
+            if (data.key_factors && data.key_factors.length > 0) {
+                data.key_factors.forEach(factor => {
+                    const li = document.createElement('li');
+                    li.className = 'flex items-start space-x-1.5';
+                    li.innerHTML = `<span class="text-brand-600 font-bold">•</span><span>${escapeHtml(factor)}</span>`;
+                    list.appendChild(li);
+                });
+            } else {
+                const li = document.createElement('li');
+                li.className = 'flex items-start space-x-1.5';
+                li.innerHTML = `<span class="text-brand-600 font-bold">•</span><span>Classification derived from joint NLP n-grams and temporal release lags.</span>`;
+                list.appendChild(li);
+            }
+        }
+
+        // Benchmark sorting and rendering
+        let currentBenchmarkSort = 'roc_auc';
+
+        function sortBenchmark(key) {
+            currentBenchmarkSort = key;
+            ['tabRoc', 'tabAcc', 'tabF1'].forEach(id => {
+                document.getElementById(id).className = 'px-3 py-1.5 rounded-md text-stone-600 hover:text-slate-900 transition';
+            });
+            if (key === 'roc_auc') document.getElementById('tabRoc').className = 'px-3 py-1.5 rounded-md bg-white text-slate-900 shadow-xs font-semibold transition';
+            if (key === 'accuracy') document.getElementById('tabAcc').className = 'px-3 py-1.5 rounded-md bg-white text-slate-900 shadow-xs font-semibold transition';
+            if (key === 'f1_score') document.getElementById('tabF1').className = 'px-3 py-1.5 rounded-md bg-white text-slate-900 shadow-xs font-semibold transition';
+
+            renderBenchmarkTable();
+        }
+
+        function renderBenchmarkTable() {
+            const tbody = document.getElementById('benchmarkTableBody');
+            const sorted = [...BENCHMARK_MODELS].sort((a, b) => {
+                if (currentBenchmarkSort === 'accuracy') return b.accuracy - a.accuracy;
+                if (currentBenchmarkSort === 'f1_score') return b.f1 - a.f1;
+                return b.roc_auc - a.roc_auc;
+            });
+
+            tbody.innerHTML = '';
+            sorted.forEach(m => {
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-stone-50/70 transition-colors';
+                tr.innerHTML = `
+                    <td class="py-3 px-4 font-medium text-slate-900 flex items-center space-x-2">
+                        <span>${escapeHtml(m.name)}</span>
+                        ${m.champion ? '<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">Champion</span>' : ''}
+                    </td>
+                    <td class="py-3 px-4 font-mono text-xs font-semibold ${m.accuracy >= 0.97 ? 'text-emerald-700' : 'text-slate-800'}">${(m.accuracy * 100).toFixed(2)}%</td>
+                    <td class="py-3 px-4 font-mono text-xs text-stone-600">${(m.precision * 100).toFixed(2)}%</td>
+                    <td class="py-3 px-4 font-mono text-xs text-stone-600">${(m.recall * 100).toFixed(2)}%</td>
+                    <td class="py-3 px-4 font-mono text-xs font-semibold ${m.f1 >= 0.95 ? 'text-emerald-700' : 'text-slate-800'}">${(m.f1 * 100).toFixed(2)}%</td>
+                    <td class="py-3 px-4 font-mono text-xs font-semibold ${m.roc_auc >= 0.99 ? 'text-emerald-700' : 'text-slate-800'}">${m.roc_auc.toFixed(4)}</td>
+                    <td class="py-3 px-4 font-mono text-xs text-stone-600">${m.pr_auc.toFixed(4)}</td>
+                    <td class="py-3 px-4 font-mono text-xs text-stone-500">${m.loss.toFixed(4)}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Catalog functionality
+        let catalogCurrentPage = 1;
+        let searchDebounceTimeout = null;
+
+        function debounceCatalogSearch() {
+            clearTimeout(searchDebounceTimeout);
+            searchDebounceTimeout = setTimeout(() => fetchCatalog(1), 300);
+        }
+
+        async function fetchCatalog(page = 1) {
+            catalogCurrentPage = page;
+            const search = document.getElementById('catalogSearchInput').value;
+            const filter = document.getElementById('catalogTypeSelect').value;
+            const tbody = document.getElementById('catalogTableBody');
+
+            try {
+                const res = await fetch(`/api/catalog?page=${page}&page_size=15&search=${encodeURIComponent(search)}&content_type=${filter}`);
+                const data = await res.json();
+
+                tbody.innerHTML = '';
+                if (!data.records || data.records.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="7" class="py-6 text-center text-stone-400 text-xs">No matching Netflix catalog titles found.</td></tr>';
+                } else {
+                    data.records.forEach(r => {
+                        const tr = document.createElement('tr');
+                        tr.className = 'hover:bg-stone-50/70 transition-colors';
+                        const isMovie = r.type === 'Movie';
+                        const typeBadge = isMovie 
+                            ? '<span class="inline-flex px-2 py-0.5 text-[10px] font-semibold rounded bg-amber-50 text-amber-800 border border-amber-200/60">Movie</span>'
+                            : '<span class="inline-flex px-2 py-0.5 text-[10px] font-semibold rounded bg-slate-100 text-slate-800 border border-stone-200">TV Show</span>';
+
+                        tr.innerHTML = `
+                            <td class="py-2.5 px-3">${typeBadge}</td>
+                            <td class="py-2.5 px-3 font-medium text-slate-900">${escapeHtml(r.title)}</td>
+                            <td class="py-2.5 px-3 text-xs text-stone-600">${escapeHtml(r.director || 'Unknown')}</td>
+                            <td class="py-2.5 px-3 text-xs text-stone-600">${escapeHtml(r.country || 'Unknown')}</td>
+                            <td class="py-2.5 px-3 text-xs text-stone-700 font-mono">${r.release_year}</td>
+                            <td class="py-2.5 px-3"><span class="px-1.5 py-0.5 rounded text-[11px] font-mono bg-stone-100 text-stone-700 border border-stone-200/60">${escapeHtml(r.rating)}</span></td>
+                            <td class="py-2.5 px-3 text-xs text-stone-500 max-w-xs truncate">${escapeHtml(r.listed_in)}</td>
+                        `;
+                        tbody.appendChild(tr);
+                    });
+                }
+
+                document.getElementById('catalogPaginationInfo').textContent = `Page ${data.page} of ${Math.max(1, data.total_pages)} (${data.total_records.toLocaleString()} total)`;
+                document.getElementById('prevPageBtn').disabled = data.page <= 1;
+                document.getElementById('nextPageBtn').disabled = data.page >= data.total_pages;
+
+            } catch (err) {
+                console.error(err);
+                tbody.innerHTML = '<tr><td colspan="7" class="py-6 text-center text-rose-600 text-xs">Failed to load dataset catalog.</td></tr>';
+            }
+        }
+
+        function changeCatalogPage(delta) {
+            fetchCatalog(catalogCurrentPage + delta);
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return String(str).replace(/[&<>"']/g, function(m) {
+                return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[m];
+            });
+        }
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            renderBenchmarkTable();
+            fetchCatalog(1);
+            // Run initial prediction for default state
+            document.getElementById('predictionForm').requestSubmit();
+        });
+    </script>
+</body>
+</html>
