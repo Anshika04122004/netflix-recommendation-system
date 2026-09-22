@@ -1,0 +1,229 @@
+{
+    "dataset_summary": {
+        "total_records": 8790,
+        "total_features": 10,
+        "target_distribution": {
+            "Movie": {
+                "count": 6126,
+                "percentage": 69.69
+            },
+            "TV Show": {
+                "count": 2664,
+                "percentage": 30.31
+            }
+        },
+        "release_year_range": [
+            1925,
+            2021
+        ],
+        "unique_directors": 4528,
+        "unique_countries": 86,
+        "unique_ratings": [
+            "G",
+            "NC-17",
+            "NR",
+            "PG",
+            "PG-13",
+            "R",
+            "TV-14",
+            "TV-G",
+            "TV-MA",
+            "TV-PG",
+            "TV-Y",
+            "TV-Y7",
+            "TV-Y7-FV",
+            "UR"
+        ]
+    },
+    "cv_results": [
+        {
+            "Model": "Random Forest",
+            "CV Accuracy Mean": 0.9736928040148779,
+            "CV Accuracy Std": 0.004601114333706658,
+            "CV Precision Mean": 0.9598855470978614,
+            "CV Recall Mean": 0.9530681355894931,
+            "CV F1 Mean": 0.9563917924522982,
+            "CV F1 Std": 0.007944343881075335,
+            "CV ROC-AUC Mean": 0.9930290230717775,
+            "Train Accuracy Mean": 0.9776024015483668,
+            "Fit Time (s)": 1.2359630107879638
+        },
+        {
+            "Model": "Logistic Regression",
+            "CV Accuracy Mean": 0.9768208338514702,
+            "CV Accuracy Std": 0.0034373900278737517,
+            "CV Precision Mean": 0.9607020493905185,
+            "CV Recall Mean": 0.9629217930534024,
+            "CV F1 Mean": 0.9617596563325496,
+            "CV F1 Std": 0.005966240388927559,
+            "CV ROC-AUC Mean": 0.9926119020401852,
+            "Train Accuracy Mean": 0.9812642508986057,
+            "Fit Time (s)": 0.42677106857299807
+        },
+        {
+            "Model": "Extra Trees",
+            "CV Accuracy Mean": 0.9769629802622732,
+            "CV Accuracy Std": 0.0028959959201190137,
+            "CV Precision Mean": 0.9660020999884502,
+            "CV Recall Mean": 0.957760772283977,
+            "CV F1 Mean": 0.9617895310898561,
+            "CV F1 Std": 0.005121200423640132,
+            "CV ROC-AUC Mean": 0.9922937619098418,
+            "Train Accuracy Mean": 0.981193158747087,
+            "Fit Time (s)": 1.741146993637085
+        },
+        {
+            "Model": "Gradient Boosting",
+            "CV Accuracy Mean": 0.9776740156158853,
+            "CV Accuracy Std": 0.0035831681379057193,
+            "CV Precision Mean": 0.9629670497529649,
+            "CV Recall Mean": 0.9633934756077448,
+            "CV F1 Mean": 0.9631394156202312,
+            "CV F1 Std": 0.006122594874608554,
+            "CV ROC-AUC Mean": 0.9918840493431091,
+            "Train Accuracy Mean": 0.9917875704072362,
+            "Fit Time (s)": 6.024372720718384
+        },
+        {
+            "Model": "Support Vector Classifier",
+            "CV Accuracy Mean": 0.9554906831419008,
+            "CV Accuracy Std": 0.00574061972683524,
+            "CV Precision Mean": 0.9618865038024949,
+            "CV Recall Mean": 0.8883200844410727,
+            "CV F1 Mean": 0.9236029096242536,
+            "CV F1 Std": 0.01008408017433339,
+            "CV ROC-AUC Mean": 0.9843201579020999,
+            "Train Accuracy Mean": 0.9805532409053207,
+            "Fit Time (s)": 23.521258497238158
+        },
+        {
+            "Model": "Decision Tree",
+            "CV Accuracy Mean": 0.9766785863408016,
+            "CV Accuracy Std": 0.003155880543109082,
+            "CV Precision Mean": 0.9650114393377093,
+            "CV Recall Mean": 0.9577618717771108,
+            "CV F1 Mean": 0.9613518441891908,
+            "CV F1 Std": 0.005423533692736172,
+            "CV ROC-AUC Mean": 0.9797505810793993,
+            "Train Accuracy Mean": 0.9788822941106767,
+            "Fit Time (s)": 0.28075098991394043
+        },
+        {
+            "Model": "AdaBoost",
+            "CV Accuracy Mean": 0.9562009096965893,
+            "CV Accuracy Std": 0.0033732755484871682,
+            "CV Precision Mean": 0.9343767901757195,
+            "CV Recall Mean": 0.920217479741839,
+            "CV F1 Mean": 0.9271333626546845,
+            "CV F1 Std": 0.006283676659940711,
+            "CV ROC-AUC Mean": 0.9749494797949947,
+            "Train Accuracy Mean": 0.9562002701741912,
+            "Fit Time (s)": 2.305128049850464
+        },
+        {
+            "Model": "K-Nearest Neighbors",
+            "CV Accuracy Mean": 0.908705305013239,
+            "CV Accuracy Std": 0.009011632929118609,
+            "CV Precision Mean": 0.8905877780090105,
+            "CV Recall Mean": 0.7968158678849051,
+            "CV F1 Mean": 0.840993134124945,
+            "CV F1 Std": 0.015789903136381536,
+            "CV ROC-AUC Mean": 0.9596549082437205,
+            "Train Accuracy Mean": 1.0,
+            "Fit Time (s)": 0.09760093688964844
+        },
+        {
+            "Model": "Naive Bayes",
+            "CV Accuracy Mean": 0.706060027034104,
+            "CV Accuracy Std": 0.007204881840079155,
+            "CV Precision Mean": 0.5080318644213805,
+            "CV Recall Mean": 0.9591725214676033,
+            "CV F1 Mean": 0.664215832351482,
+            "CV F1 Std": 0.0056474661184347874,
+            "CV ROC-AUC Mean": 0.929909974086512,
+            "Train Accuracy Mean": 0.7092573812063041,
+            "Fit Time (s)": 0.06306991577148438
+        }
+    ],
+    "test_results": [
+        {
+            "Model": "Soft Voting Ensemble",
+            "Accuracy": 0.9709897610921502,
+            "Balanced Acc": 0.9654056744649079,
+            "Precision": 0.9530075187969925,
+            "Recall": 0.9512195121951219,
+            "F1 Score": 0.952112676056338,
+            "ROC-AUC": 0.9945506758050312,
+            "Avg Precision (PR-AUC)": 0.9894078953393686,
+            "Log Loss": 0.10746389458785215
+        },
+        {
+            "Model": "Gradient Boosting (Tuned)",
+            "Accuracy": 0.9721274175199089,
+            "Balanced Acc": 0.966751924034154,
+            "Precision": 0.9548872180451128,
+            "Recall": 0.9530956848030019,
+            "F1 Score": 0.9539906103286385,
+            "ROC-AUC": 0.9944541869280544,
+            "Avg Precision (PR-AUC)": 0.9887412828421276,
+            "Log Loss": 0.08404390461307604
+        },
+        {
+            "Model": "Stacking Ensemble",
+            "Accuracy": 0.9715585893060296,
+            "Balanced Acc": 0.9668736838074816,
+            "Precision": 0.9514018691588785,
+            "Recall": 0.9549718574108818,
+            "F1 Score": 0.9531835205992509,
+            "ROC-AUC": 0.9943500402036987,
+            "Avg Precision (PR-AUC)": 0.9892065189831862,
+            "Log Loss": 0.10619793664997057
+        },
+        {
+            "Model": "Random Forest (Tuned)",
+            "Accuracy": 0.9692832764505119,
+            "Balanced Acc": 0.962591415553088,
+            "Precision": 0.9527410207939508,
+            "Recall": 0.9455909943714822,
+            "F1 Score": 0.9491525423728814,
+            "ROC-AUC": 0.9933943408507868,
+            "Avg Precision (PR-AUC)": 0.9866934175966118,
+            "Log Loss": 0.11247817932726077
+        },
+        {
+            "Model": "Extra Trees",
+            "Accuracy": 0.9687144482366326,
+            "Balanced Acc": 0.961653329249148,
+            "Precision": 0.9526515151515151,
+            "Recall": 0.9437148217636022,
+            "F1 Score": 0.9481621112158342,
+            "ROC-AUC": 0.992097101504767,
+            "Avg Precision (PR-AUC)": 0.9827989848587793,
+            "Log Loss": 0.17484798734829463
+        },
+        {
+            "Model": "Logistic Regression (Tuned)",
+            "Accuracy": 0.9681456200227532,
+            "Balanced Acc": 0.9628349350997435,
+            "Precision": 0.9457943925233645,
+            "Recall": 0.949343339587242,
+            "F1 Score": 0.947565543071161,
+            "ROC-AUC": 0.9910724815254431,
+            "Avg Precision (PR-AUC)": 0.9821945118985711,
+            "Log Loss": 0.10692459699777773
+        }
+    ],
+    "best_model_name": "Soft Voting Ensemble (RF + GB + LR + ET)",
+    "best_model_test_metrics": {
+        "accuracy": 0.9709897610921502,
+        "balanced_accuracy": 0.9654056744649079,
+        "precision": 0.9530075187969925,
+        "recall": 0.9512195121951219,
+        "f1_score": 0.952112676056338,
+        "f1_macro": 0.9656524212595031,
+        "f1_weighted": 0.9709820593030699,
+        "roc_auc": 0.9945506758050312,
+        "average_precision": 0.9894078953393686,
+        "log_loss": 0.10746389458785215
+    }
+}
