@@ -1,0 +1,2836 @@
+{
+  "best_model_name": "Voting Ensemble (RF+GB+ET)",
+  "dataset_info": {
+    "total_samples": 8790,
+    "train_samples": 7032,
+    "test_samples": 1758,
+    "features_count": 187,
+    "num_classes": 14,
+    "classes": [
+      "G",
+      "NC-17",
+      "NR",
+      "PG",
+      "PG-13",
+      "R",
+      "TV-14",
+      "TV-G",
+      "TV-MA",
+      "TV-PG",
+      "TV-Y",
+      "TV-Y7",
+      "TV-Y7-FV",
+      "UR"
+    ]
+  },
+  "tuning_parameters": {
+    "decision_tree": {
+      "min_samples_split": 5,
+      "min_samples_leaf": 4,
+      "max_features": null,
+      "max_depth": 8,
+      "criterion": "gini"
+    },
+    "random_forest": {
+      "n_estimators": 300,
+      "min_samples_split": 5,
+      "min_samples_leaf": 1,
+      "max_features": "sqrt",
+      "max_depth": null,
+      "class_weight": null
+    },
+    "gradient_boosting": {
+      "subsample": 0.9,
+      "n_estimators": 300,
+      "min_samples_split": 2,
+      "min_samples_leaf": 1,
+      "max_features": "log2",
+      "max_depth": 4,
+      "learning_rate": 0.08
+    }
+  },
+  "models": {
+    "Logistic Regression (Baseline)": {
+      "accuracy": 0.438,
+      "precision_weighted": 0.5225,
+      "recall_weighted": 0.438,
+      "f1_weighted": 0.4629,
+      "precision_macro": 0.2869,
+      "recall_macro": 0.3834,
+      "f1_macro": 0.2974,
+      "classification_report": {
+        "G": {
+          "precision": 0.1579,
+          "recall": 0.75,
+          "f1-score": 0.2609,
+          "support": 8.0
+        },
+        "NC-17": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "NR": {
+          "precision": 0.0775,
+          "recall": 0.6875,
+          "f1-score": 0.1392,
+          "support": 16.0
+        },
+        "PG": {
+          "precision": 0.4167,
+          "recall": 0.4386,
+          "f1-score": 0.4274,
+          "support": 57.0
+        },
+        "PG-13": {
+          "precision": 0.3774,
+          "recall": 0.6122,
+          "f1-score": 0.4669,
+          "support": 98.0
+        },
+        "R": {
+          "precision": 0.45,
+          "recall": 0.5062,
+          "f1-score": 0.4765,
+          "support": 160.0
+        },
+        "TV-14": {
+          "precision": 0.5288,
+          "recall": 0.4478,
+          "f1-score": 0.4849,
+          "support": 431.0
+        },
+        "TV-G": {
+          "precision": 0.0784,
+          "recall": 0.1818,
+          "f1-score": 0.1096,
+          "support": 44.0
+        },
+        "TV-MA": {
+          "precision": 0.699,
+          "recall": 0.4384,
+          "f1-score": 0.5388,
+          "support": 641.0
+        },
+        "TV-PG": {
+          "precision": 0.2333,
+          "recall": 0.2035,
+          "f1-score": 0.2174,
+          "support": 172.0
+        },
+        "TV-Y": {
+          "precision": 0.5132,
+          "recall": 0.6393,
+          "f1-score": 0.5693,
+          "support": 61.0
+        },
+        "TV-Y7": {
+          "precision": 0.4844,
+          "recall": 0.4627,
+          "f1-score": 0.4733,
+          "support": 67.0
+        },
+        "TV-Y7-FV": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "UR": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "accuracy": 0.438,
+        "macro avg": {
+          "precision": 0.2869,
+          "recall": 0.3834,
+          "f1-score": 0.2974,
+          "support": 1758.0
+        },
+        "weighted avg": {
+          "precision": 0.5225,
+          "recall": 0.438,
+          "f1-score": 0.4629,
+          "support": 1758.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          6,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          11,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          10,
+          0,
+          1,
+          25,
+          9,
+          4,
+          1,
+          3,
+          0,
+          1,
+          0,
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          0,
+          6,
+          7,
+          60,
+          16,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          4
+        ],
+        [
+          2,
+          0,
+          16,
+          3,
+          47,
+          81,
+          1,
+          3,
+          4,
+          2,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          4,
+          1,
+          26,
+          4,
+          16,
+          18,
+          193,
+          31,
+          92,
+          42,
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          4,
+          8,
+          6,
+          10,
+          9,
+          4,
+          0,
+          0
+        ],
+        [
+          7,
+          0,
+          71,
+          2,
+          23,
+          56,
+          115,
+          23,
+          281,
+          56,
+          0,
+          4,
+          0,
+          3
+        ],
+        [
+          3,
+          0,
+          9,
+          12,
+          3,
+          4,
+          50,
+          27,
+          18,
+          35,
+          3,
+          6,
+          2,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          2,
+          0,
+          1,
+          39,
+          15,
+          1,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          4,
+          0,
+          0,
+          25,
+          31,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "model_name": "Logistic Regression (Baseline)"
+    },
+    "Decision Tree (Baseline)": {
+      "accuracy": 0.409,
+      "precision_weighted": 0.4769,
+      "recall_weighted": 0.409,
+      "f1_weighted": 0.4289,
+      "precision_macro": 0.3022,
+      "recall_macro": 0.3333,
+      "f1_macro": 0.3096,
+      "classification_report": {
+        "G": {
+          "precision": 0.4167,
+          "recall": 0.625,
+          "f1-score": 0.5,
+          "support": 8.0
+        },
+        "NC-17": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "NR": {
+          "precision": 0.1538,
+          "recall": 0.25,
+          "f1-score": 0.1905,
+          "support": 16.0
+        },
+        "PG": {
+          "precision": 0.431,
+          "recall": 0.4386,
+          "f1-score": 0.4348,
+          "support": 57.0
+        },
+        "PG-13": {
+          "precision": 0.313,
+          "recall": 0.4184,
+          "f1-score": 0.3581,
+          "support": 98.0
+        },
+        "R": {
+          "precision": 0.4242,
+          "recall": 0.35,
+          "f1-score": 0.3836,
+          "support": 160.0
+        },
+        "TV-14": {
+          "precision": 0.4299,
+          "recall": 0.4269,
+          "f1-score": 0.4284,
+          "support": 431.0
+        },
+        "TV-G": {
+          "precision": 0.1154,
+          "recall": 0.2045,
+          "f1-score": 0.1475,
+          "support": 44.0
+        },
+        "TV-MA": {
+          "precision": 0.65,
+          "recall": 0.4056,
+          "f1-score": 0.4995,
+          "support": 641.0
+        },
+        "TV-PG": {
+          "precision": 0.1807,
+          "recall": 0.3372,
+          "f1-score": 0.2353,
+          "support": 172.0
+        },
+        "TV-Y": {
+          "precision": 0.5616,
+          "recall": 0.6721,
+          "f1-score": 0.6119,
+          "support": 61.0
+        },
+        "TV-Y7": {
+          "precision": 0.5538,
+          "recall": 0.5373,
+          "f1-score": 0.5455,
+          "support": 67.0
+        },
+        "TV-Y7-FV": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "UR": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "accuracy": 0.409,
+        "macro avg": {
+          "precision": 0.3022,
+          "recall": 0.3333,
+          "f1-score": 0.3096,
+          "support": 1758.0
+        },
+        "weighted avg": {
+          "precision": 0.4769,
+          "recall": 0.409,
+          "f1-score": 0.4289,
+          "support": 1758.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          5,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          4,
+          0,
+          1,
+          0,
+          2,
+          0,
+          3,
+          5,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          25,
+          7,
+          3,
+          5,
+          1,
+          1,
+          5,
+          2,
+          6,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          6,
+          41,
+          30,
+          1,
+          2,
+          9,
+          6,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          3,
+          2,
+          5,
+          44,
+          56,
+          13,
+          2,
+          13,
+          19,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          5,
+          4,
+          7,
+          11,
+          11,
+          184,
+          19,
+          92,
+          96,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          9,
+          9,
+          4,
+          16,
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          1,
+          19,
+          13,
+          4,
+          20,
+          31,
+          163,
+          22,
+          260,
+          105,
+          1,
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          6,
+          6,
+          1,
+          50,
+          19,
+          16,
+          58,
+          5,
+          4,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          1,
+          4,
+          41,
+          12,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          1,
+          4,
+          0,
+          5,
+          19,
+          36,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "model_name": "Decision Tree (Baseline)"
+    },
+    "Random Forest (Baseline)": {
+      "accuracy": 0.5466,
+      "precision_weighted": 0.5287,
+      "recall_weighted": 0.5466,
+      "f1_weighted": 0.532,
+      "precision_macro": 0.3984,
+      "recall_macro": 0.3491,
+      "f1_macro": 0.3657,
+      "classification_report": {
+        "G": {
+          "precision": 1.0,
+          "recall": 0.625,
+          "f1-score": 0.7692,
+          "support": 8.0
+        },
+        "NC-17": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "NR": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 16.0
+        },
+        "PG": {
+          "precision": 0.6739,
+          "recall": 0.5439,
+          "f1-score": 0.6019,
+          "support": 57.0
+        },
+        "PG-13": {
+          "precision": 0.5122,
+          "recall": 0.4286,
+          "f1-score": 0.4667,
+          "support": 98.0
+        },
+        "R": {
+          "precision": 0.5987,
+          "recall": 0.5687,
+          "f1-score": 0.5833,
+          "support": 160.0
+        },
+        "TV-14": {
+          "precision": 0.4988,
+          "recall": 0.464,
+          "f1-score": 0.4808,
+          "support": 431.0
+        },
+        "TV-G": {
+          "precision": 0.2778,
+          "recall": 0.1136,
+          "f1-score": 0.1613,
+          "support": 44.0
+        },
+        "TV-MA": {
+          "precision": 0.5912,
+          "recall": 0.7332,
+          "f1-score": 0.6546,
+          "support": 641.0
+        },
+        "TV-PG": {
+          "precision": 0.3675,
+          "recall": 0.25,
+          "f1-score": 0.2976,
+          "support": 172.0
+        },
+        "TV-Y": {
+          "precision": 0.5278,
+          "recall": 0.623,
+          "f1-score": 0.5714,
+          "support": 61.0
+        },
+        "TV-Y7": {
+          "precision": 0.5294,
+          "recall": 0.5373,
+          "f1-score": 0.5333,
+          "support": 67.0
+        },
+        "TV-Y7-FV": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "UR": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "accuracy": 0.5466,
+        "macro avg": {
+          "precision": 0.3984,
+          "recall": 0.3491,
+          "f1-score": 0.3657,
+          "support": 1758.0
+        },
+        "weighted avg": {
+          "precision": 0.5287,
+          "recall": 0.5466,
+          "f1-score": 0.532,
+          "support": 1758.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          5,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          5,
+          0,
+          11,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          31,
+          8,
+          0,
+          4,
+          0,
+          2,
+          7,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          3,
+          42,
+          27,
+          6,
+          0,
+          16,
+          4,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          26,
+          91,
+          8,
+          0,
+          33,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          3,
+          7,
+          200,
+          4,
+          192,
+          23,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          6,
+          5,
+          15,
+          8,
+          6,
+          3,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          3,
+          24,
+          115,
+          3,
+          470,
+          25,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          5,
+          0,
+          2,
+          57,
+          5,
+          52,
+          43,
+          2,
+          5,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2,
+          38,
+          18,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          4,
+          24,
+          36,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "model_name": "Random Forest (Baseline)"
+    },
+    "Decision Tree (Tuned)": {
+      "accuracy": 0.5188,
+      "precision_weighted": 0.5027,
+      "recall_weighted": 0.5188,
+      "f1_weighted": 0.4883,
+      "precision_macro": 0.3436,
+      "recall_macro": 0.2916,
+      "f1_macro": 0.2995,
+      "classification_report": {
+        "G": {
+          "precision": 0.6,
+          "recall": 0.375,
+          "f1-score": 0.4615,
+          "support": 8.0
+        },
+        "NC-17": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "NR": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 16.0
+        },
+        "PG": {
+          "precision": 0.6341,
+          "recall": 0.4561,
+          "f1-score": 0.5306,
+          "support": 57.0
+        },
+        "PG-13": {
+          "precision": 0.4044,
+          "recall": 0.5612,
+          "f1-score": 0.4701,
+          "support": 98.0
+        },
+        "R": {
+          "precision": 0.7143,
+          "recall": 0.3125,
+          "f1-score": 0.4348,
+          "support": 160.0
+        },
+        "TV-14": {
+          "precision": 0.5,
+          "recall": 0.4316,
+          "f1-score": 0.4633,
+          "support": 431.0
+        },
+        "TV-G": {
+          "precision": 0.2,
+          "recall": 0.0455,
+          "f1-score": 0.0741,
+          "support": 44.0
+        },
+        "TV-MA": {
+          "precision": 0.5541,
+          "recall": 0.791,
+          "f1-score": 0.6517,
+          "support": 641.0
+        },
+        "TV-PG": {
+          "precision": 0.3016,
+          "recall": 0.1105,
+          "f1-score": 0.1617,
+          "support": 172.0
+        },
+        "TV-Y": {
+          "precision": 0.4918,
+          "recall": 0.4918,
+          "f1-score": 0.4918,
+          "support": 61.0
+        },
+        "TV-Y7": {
+          "precision": 0.4096,
+          "recall": 0.5075,
+          "f1-score": 0.4533,
+          "support": 67.0
+        },
+        "TV-Y7-FV": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "UR": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "accuracy": 0.5188,
+        "macro avg": {
+          "precision": 0.3436,
+          "recall": 0.2916,
+          "f1-score": 0.2995,
+          "support": 1758.0
+        },
+        "weighted avg": {
+          "precision": 0.5027,
+          "recall": 0.5188,
+          "f1-score": 0.4883,
+          "support": 1758.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          3,
+          0,
+          0,
+          2,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          14,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          26,
+          9,
+          1,
+          5,
+          0,
+          5,
+          5,
+          0,
+          5,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          3,
+          55,
+          11,
+          3,
+          0,
+          25,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          51,
+          50,
+          5,
+          0,
+          53,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          8,
+          2,
+          186,
+          2,
+          220,
+          12,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          5,
+          2,
+          17,
+          7,
+          5,
+          7,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          7,
+          5,
+          109,
+          0,
+          507,
+          11,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          7,
+          3,
+          1,
+          57,
+          5,
+          72,
+          19,
+          1,
+          7,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          2,
+          30,
+          26,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          6,
+          24,
+          34,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "model_name": "Decision Tree (Tuned)"
+    },
+    "Random Forest (Tuned)": {
+      "accuracy": 0.5575,
+      "precision_weighted": 0.5365,
+      "recall_weighted": 0.5575,
+      "f1_weighted": 0.5379,
+      "precision_macro": 0.4023,
+      "recall_macro": 0.3466,
+      "f1_macro": 0.3624,
+      "classification_report": {
+        "G": {
+          "precision": 1.0,
+          "recall": 0.625,
+          "f1-score": 0.7692,
+          "support": 8.0
+        },
+        "NC-17": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "NR": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 16.0
+        },
+        "PG": {
+          "precision": 0.6977,
+          "recall": 0.5263,
+          "f1-score": 0.6,
+          "support": 57.0
+        },
+        "PG-13": {
+          "precision": 0.5185,
+          "recall": 0.4286,
+          "f1-score": 0.4693,
+          "support": 98.0
+        },
+        "R": {
+          "precision": 0.596,
+          "recall": 0.5625,
+          "f1-score": 0.5788,
+          "support": 160.0
+        },
+        "TV-14": {
+          "precision": 0.5129,
+          "recall": 0.4617,
+          "f1-score": 0.486,
+          "support": 431.0
+        },
+        "TV-G": {
+          "precision": 0.3,
+          "recall": 0.0682,
+          "f1-score": 0.1111,
+          "support": 44.0
+        },
+        "TV-MA": {
+          "precision": 0.5983,
+          "recall": 0.7738,
+          "f1-score": 0.6748,
+          "support": 641.0
+        },
+        "TV-PG": {
+          "precision": 0.381,
+          "recall": 0.2326,
+          "f1-score": 0.2888,
+          "support": 172.0
+        },
+        "TV-Y": {
+          "precision": 0.5,
+          "recall": 0.6066,
+          "f1-score": 0.5481,
+          "support": 61.0
+        },
+        "TV-Y7": {
+          "precision": 0.5278,
+          "recall": 0.5672,
+          "f1-score": 0.5468,
+          "support": 67.0
+        },
+        "TV-Y7-FV": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "UR": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "accuracy": 0.5575,
+        "macro avg": {
+          "precision": 0.4023,
+          "recall": 0.3466,
+          "f1-score": 0.3624,
+          "support": 1758.0
+        },
+        "weighted avg": {
+          "precision": 0.5365,
+          "recall": 0.5575,
+          "f1-score": 0.5379,
+          "support": 1758.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          5,
+          0,
+          0,
+          2,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          0,
+          12,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          30,
+          7,
+          1,
+          5,
+          0,
+          3,
+          6,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          42,
+          29,
+          5,
+          0,
+          17,
+          2,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          25,
+          90,
+          8,
+          0,
+          35,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          4,
+          8,
+          199,
+          1,
+          194,
+          24,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          5,
+          3,
+          14,
+          11,
+          6,
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          2,
+          22,
+          104,
+          2,
+          496,
+          15,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          6,
+          0,
+          1,
+          59,
+          4,
+          54,
+          40,
+          4,
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2,
+          37,
+          20,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          3,
+          25,
+          38,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "model_name": "Random Forest (Tuned)"
+    },
+    "Gradient Boosting (Tuned)": {
+      "accuracy": 0.5375,
+      "precision_weighted": 0.5441,
+      "recall_weighted": 0.5375,
+      "f1_weighted": 0.5343,
+      "precision_macro": 0.3807,
+      "recall_macro": 0.3372,
+      "f1_macro": 0.3483,
+      "classification_report": {
+        "G": {
+          "precision": 0.5556,
+          "recall": 0.625,
+          "f1-score": 0.5882,
+          "support": 8.0
+        },
+        "NC-17": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "NR": {
+          "precision": 0.2,
+          "recall": 0.0625,
+          "f1-score": 0.0952,
+          "support": 16.0
+        },
+        "PG": {
+          "precision": 0.6512,
+          "recall": 0.4912,
+          "f1-score": 0.56,
+          "support": 57.0
+        },
+        "PG-13": {
+          "precision": 0.5357,
+          "recall": 0.4592,
+          "f1-score": 0.4945,
+          "support": 98.0
+        },
+        "R": {
+          "precision": 0.5797,
+          "recall": 0.5,
+          "f1-score": 0.5369,
+          "support": 160.0
+        },
+        "TV-14": {
+          "precision": 0.5495,
+          "recall": 0.4896,
+          "f1-score": 0.5178,
+          "support": 431.0
+        },
+        "TV-G": {
+          "precision": 0.3333,
+          "recall": 0.0909,
+          "f1-score": 0.1429,
+          "support": 44.0
+        },
+        "TV-MA": {
+          "precision": 0.6161,
+          "recall": 0.7285,
+          "f1-score": 0.6676,
+          "support": 641.0
+        },
+        "TV-PG": {
+          "precision": 0.3364,
+          "recall": 0.2093,
+          "f1-score": 0.2581,
+          "support": 172.0
+        },
+        "TV-Y": {
+          "precision": 0.4722,
+          "recall": 0.5574,
+          "f1-score": 0.5113,
+          "support": 61.0
+        },
+        "TV-Y7": {
+          "precision": 0.5,
+          "recall": 0.5075,
+          "f1-score": 0.5037,
+          "support": 67.0
+        },
+        "TV-Y7-FV": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "UR": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "accuracy": 0.5375,
+        "macro avg": {
+          "precision": 0.3807,
+          "recall": 0.3372,
+          "f1-score": 0.3483,
+          "support": 1758.0
+        },
+        "weighted avg": {
+          "precision": 0.5441,
+          "recall": 0.5375,
+          "f1-score": 0.5343,
+          "support": 1758.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          5,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          12,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          28,
+          7,
+          2,
+          4,
+          1,
+          2,
+          7,
+          1,
+          3,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          3,
+          45,
+          27,
+          3,
+          0,
+          15,
+          4,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          20,
+          0,
+          0,
+          27,
+          80,
+          4,
+          0,
+          27,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          10,
+          1,
+          2,
+          2,
+          7,
+          211,
+          0,
+          170,
+          27,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          4,
+          4,
+          13,
+          11,
+          6,
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          38,
+          2,
+          0,
+          2,
+          20,
+          95,
+          0,
+          467,
+          17,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          6,
+          0,
+          2,
+          60,
+          4,
+          50,
+          36,
+          6,
+          2,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          34,
+          23,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          2,
+          1,
+          3,
+          24,
+          34,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "model_name": "Gradient Boosting (Tuned)"
+    },
+    "Extra Trees": {
+      "accuracy": 0.533,
+      "precision_weighted": 0.517,
+      "recall_weighted": 0.533,
+      "f1_weighted": 0.5225,
+      "precision_macro": 0.3683,
+      "recall_macro": 0.3451,
+      "f1_macro": 0.3541,
+      "classification_report": {
+        "G": {
+          "precision": 0.8333,
+          "recall": 0.625,
+          "f1-score": 0.7143,
+          "support": 8.0
+        },
+        "NC-17": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "NR": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 16.0
+        },
+        "PG": {
+          "precision": 0.5273,
+          "recall": 0.5088,
+          "f1-score": 0.5179,
+          "support": 57.0
+        },
+        "PG-13": {
+          "precision": 0.4948,
+          "recall": 0.4898,
+          "f1-score": 0.4923,
+          "support": 98.0
+        },
+        "R": {
+          "precision": 0.5839,
+          "recall": 0.5437,
+          "f1-score": 0.5631,
+          "support": 160.0
+        },
+        "TV-14": {
+          "precision": 0.4937,
+          "recall": 0.4524,
+          "f1-score": 0.4722,
+          "support": 431.0
+        },
+        "TV-G": {
+          "precision": 0.2759,
+          "recall": 0.1818,
+          "f1-score": 0.2192,
+          "support": 44.0
+        },
+        "TV-MA": {
+          "precision": 0.6008,
+          "recall": 0.7067,
+          "f1-score": 0.6495,
+          "support": 641.0
+        },
+        "TV-PG": {
+          "precision": 0.3165,
+          "recall": 0.2558,
+          "f1-score": 0.283,
+          "support": 172.0
+        },
+        "TV-Y": {
+          "precision": 0.5294,
+          "recall": 0.5902,
+          "f1-score": 0.5581,
+          "support": 61.0
+        },
+        "TV-Y7": {
+          "precision": 0.5,
+          "recall": 0.4776,
+          "f1-score": 0.4885,
+          "support": 67.0
+        },
+        "TV-Y7-FV": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "UR": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "accuracy": 0.533,
+        "macro avg": {
+          "precision": 0.3683,
+          "recall": 0.3451,
+          "f1-score": 0.3541,
+          "support": 1758.0
+        },
+        "weighted avg": {
+          "precision": 0.517,
+          "recall": 0.533,
+          "f1-score": 0.5225,
+          "support": 1758.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          5,
+          0,
+          0,
+          2,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          3,
+          0,
+          12,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          29,
+          8,
+          1,
+          5,
+          0,
+          1,
+          8,
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          5,
+          48,
+          22,
+          7,
+          0,
+          12,
+          4,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          3,
+          27,
+          87,
+          7,
+          0,
+          34,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          3,
+          7,
+          8,
+          195,
+          5,
+          177,
+          36,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          4,
+          8,
+          14,
+          10,
+          4,
+          3,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          5,
+          28,
+          118,
+          6,
+          453,
+          29,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          8,
+          1,
+          2,
+          56,
+          6,
+          47,
+          44,
+          3,
+          5,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          1,
+          1,
+          3,
+          36,
+          18,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          3,
+          1,
+          4,
+          25,
+          32,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "model_name": "Extra Trees"
+    },
+    "Voting Ensemble (RF+GB+ET)": {
+      "accuracy": 0.5501,
+      "precision_weighted": 0.5432,
+      "recall_weighted": 0.5501,
+      "f1_weighted": 0.5396,
+      "precision_macro": 0.3857,
+      "recall_macro": 0.3414,
+      "f1_macro": 0.3557,
+      "classification_report": {
+        "G": {
+          "precision": 0.7143,
+          "recall": 0.625,
+          "f1-score": 0.6667,
+          "support": 8.0
+        },
+        "NC-17": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "NR": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 16.0
+        },
+        "PG": {
+          "precision": 0.7,
+          "recall": 0.4912,
+          "f1-score": 0.5773,
+          "support": 57.0
+        },
+        "PG-13": {
+          "precision": 0.5432,
+          "recall": 0.449,
+          "f1-score": 0.4916,
+          "support": 98.0
+        },
+        "R": {
+          "precision": 0.5931,
+          "recall": 0.5375,
+          "f1-score": 0.5639,
+          "support": 160.0
+        },
+        "TV-14": {
+          "precision": 0.5296,
+          "recall": 0.478,
+          "f1-score": 0.5024,
+          "support": 431.0
+        },
+        "TV-G": {
+          "precision": 0.375,
+          "recall": 0.1364,
+          "f1-score": 0.2,
+          "support": 44.0
+        },
+        "TV-MA": {
+          "precision": 0.6086,
+          "recall": 0.752,
+          "f1-score": 0.6727,
+          "support": 641.0
+        },
+        "TV-PG": {
+          "precision": 0.3784,
+          "recall": 0.2442,
+          "f1-score": 0.2968,
+          "support": 172.0
+        },
+        "TV-Y": {
+          "precision": 0.4795,
+          "recall": 0.5738,
+          "f1-score": 0.5224,
+          "support": 61.0
+        },
+        "TV-Y7": {
+          "precision": 0.4783,
+          "recall": 0.4925,
+          "f1-score": 0.4853,
+          "support": 67.0
+        },
+        "TV-Y7-FV": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "UR": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "accuracy": 0.5501,
+        "macro avg": {
+          "precision": 0.3857,
+          "recall": 0.3414,
+          "f1-score": 0.3557,
+          "support": 1758.0
+        },
+        "weighted avg": {
+          "precision": 0.5432,
+          "recall": 0.5501,
+          "f1-score": 0.5396,
+          "support": 1758.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          5,
+          0,
+          0,
+          2,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          0,
+          13,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          28,
+          8,
+          0,
+          4,
+          0,
+          3,
+          7,
+          1,
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          2,
+          44,
+          27,
+          7,
+          0,
+          14,
+          3,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          11,
+          0,
+          1,
+          25,
+          86,
+          7,
+          0,
+          29,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          6,
+          0,
+          1,
+          3,
+          7,
+          206,
+          1,
+          184,
+          22,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          5,
+          6,
+          13,
+          8,
+          6,
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          12,
+          1,
+          0,
+          1,
+          23,
+          97,
+          1,
+          482,
+          24,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          4,
+          0,
+          1,
+          60,
+          6,
+          50,
+          42,
+          4,
+          4,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2,
+          35,
+          22,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          1,
+          3,
+          27,
+          33,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "model_name": "Voting Ensemble (RF+GB+ET)"
+    }
+  },
+  "feature_importances": [
+    {
+      "feature": "duration_value",
+      "importance": 0.07689
+    },
+    {
+      "feature": "release_year",
+      "importance": 0.06903
+    },
+    {
+      "feature": "movie_duration_mins",
+      "importance": 0.06806
+    },
+    {
+      "feature": "added_month",
+      "importance": 0.06492
+    },
+    {
+      "feature": "content_age",
+      "importance": 0.0642
+    },
+    {
+      "feature": "added_year",
+      "importance": 0.05196
+    },
+    {
+      "feature": "director_popularity",
+      "importance": 0.03199
+    },
+    {
+      "feature": "is_kids_content",
+      "importance": 0.02687
+    },
+    {
+      "feature": "is_kids_content",
+      "importance": 0.02639
+    },
+    {
+      "feature": "genre_count",
+      "importance": 0.02427
+    },
+    {
+      "feature": "release_decade",
+      "importance": 0.02353
+    },
+    {
+      "feature": "genre_Children & Family Movies",
+      "importance": 0.0165
+    },
+    {
+      "feature": "is_international",
+      "importance": 0.0164
+    },
+    {
+      "feature": "is_international",
+      "importance": 0.01588
+    },
+    {
+      "feature": "is_recent",
+      "importance": 0.01578
+    },
+    {
+      "feature": "genre_Kids' TV",
+      "importance": 0.01467
+    },
+    {
+      "feature": "season_count",
+      "importance": 0.01179
+    },
+    {
+      "feature": "primary_country_India",
+      "importance": 0.01153
+    },
+    {
+      "feature": "india_primary",
+      "importance": 0.01146
+    },
+    {
+      "feature": "is_comedy",
+      "importance": 0.01053
+    },
+    {
+      "feature": "is_comedy",
+      "importance": 0.01053
+    },
+    {
+      "feature": "is_adult_drama",
+      "importance": 0.01048
+    },
+    {
+      "feature": "is_adult_drama",
+      "importance": 0.01035
+    },
+    {
+      "feature": "international_content",
+      "importance": 0.01012
+    },
+    {
+      "feature": "primary_country_United States",
+      "importance": 0.01002
+    }
+  ]
+}
