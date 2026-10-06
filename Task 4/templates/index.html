@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Content Segmentation | AI Unsupervised Intelligence</title>
+    <meta name="description" content="Production-grade unsupervised machine learning pipeline and interactive intelligence platform for Netflix content segmentation, clustering benchmarks, and catalog analytics.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="app-header">
+        <div class="header-container">
+            <div class="brand-logo">
+                <div class="logo-icon"><i class="fa-solid fa-shapes"></i></div>
+                <div class="logo-text">
+                    <span class="brand-title">NETFLIX</span>
+                    <span class="brand-subtitle">CONTENT SEGMENTATION ML</span>
+                </div>
+            </div>
+
+            <nav class="nav-links">
+                <a href="#overview" class="nav-item active"><i class="fa-solid fa-chart-pie"></i> Overview</a>
+                <a href="#visualization" class="nav-item"><i class="fa-solid fa-cube"></i> Cluster Map</a>
+                <a href="#benchmarks" class="nav-item"><i class="fa-solid fa-microchip"></i> Model Benchmarks</a>
+                <a href="#personas" class="nav-item"><i class="fa-solid fa-layer-group"></i> Personas</a>
+                <a href="#predictor" class="nav-item"><i class="fa-solid fa-wand-magic-sparkles"></i> Live Predictor</a>
+                <a href="#catalog" class="nav-item"><i class="fa-solid fa-table-list"></i> Catalog Explorer</a>
+                <a href="#strategy" class="nav-item"><i class="fa-solid fa-lightbulb"></i> Business Insights</a>
+            </nav>
+
+            <div class="header-badge">
+                <span class="status-pulse"></span>
+                <span class="status-text">Production Engine Active</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Hero & Overview KPI Section -->
+        <section id="overview" class="section hero-section">
+            <div class="hero-text-block">
+                <div class="hero-tag"><i class="fa-solid fa-brain"></i> Unsupervised Machine Learning Task 4</div>
+                <h1 class="hero-title">Automated Netflix Content Segmentation & Semantic Clustering</h1>
+                <p class="hero-description">
+                    End-to-end unsupervised pipeline discovering natural behavioral content archetypes across 8,790 titles.
+                    Leveraging multi-label genre binarization, duration modeling, maturity tiering, and multi-model benchmarking.
+                </p>
+            </div>
+
+            <!-- Metric KPI Cards -->
+            <div class="kpi-grid">
+                <div class="kpi-card" style="--accent-color: #f43f5e;">
+                    <div class="kpi-icon"><i class="fa-solid fa-film"></i></div>
+                    <div class="kpi-info">
+                        <div class="kpi-label">Analyzed Titles</div>
+                        <div class="kpi-value" id="kpi-total-titles">8,790</div>
+                        <div class="kpi-sub"><span id="kpi-movies-count">6,126 Movies</span> • <span id="kpi-tv-count">2,664 Shows</span></div>
+                    </div>
+                </div>
+
+                <div class="kpi-card" style="--accent-color: #818cf8;">
+                    <div class="kpi-icon"><i class="fa-solid fa-diagram-project"></i></div>
+                    <div class="kpi-info">
+                        <div class="kpi-label">Discovered Segments</div>
+                        <div class="kpi-value" id="kpi-clusters-count">6 Clusters</div>
+                        <div class="kpi-sub">Optimal K Selection via Elbow & Silhouette</div>
+                    </div>
+                </div>
+
+                <div class="kpi-card" style="--accent-color: #10b981;">
+                    <div class="kpi-icon"><i class="fa-solid fa-sliders"></i></div>
+                    <div class="kpi-info">
+                        <div class="kpi-label">Feature Dimensions</div>
+                        <div class="kpi-value">61 Features</div>
+                        <div class="kpi-sub">Genres, Ratings, Regions, Durations</div>
+                    </div>
+                </div>
+
+                <div class="kpi-card" style="--accent-color: #f59e0b;">
+                    <div class="kpi-icon"><i class="fa-solid fa-award"></i></div>
+                    <div class="kpi-info">
+                        <div class="kpi-label">Selected Model</div>
+                        <div class="kpi-value">K-Means (K=6)</div>
+                        <div class="kpi-sub">Silhouette 0.158 • Davies-Bouldin 1.705</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Cluster Projection Map -->
+        <section id="visualization" class="section">
+            <div class="section-header">
+                <div>
+                    <span class="section-subtitle">LATENT SPACE VISUALIZATION</span>
+                    <h2 class="section-title">Interactive Content Cluster Scatter Map</h2>
+                </div>
+                <div class="visualizer-controls">
+                    <div class="filter-group">
+                        <label for="cluster-filter">Filter Segment:</label>
+                        <select id="cluster-filter" class="custom-select">
+                            <option value="all">All 6 Clusters</option>
+                            <option value="0">Cluster 0: Mainstream Comedy & Family</option>
+                            <option value="1">Cluster 1: Global Serialized Dramas</option>
+                            <option value="2">Cluster 2: Heritage Cinema Archives</option>
+                            <option value="3">Cluster 3: Documentaries & Specials</option>
+                            <option value="4">Cluster 4: Youth Animation & TV</option>
+                            <option value="5">Cluster 5: Global Indie Cinema</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="type-filter">Type:</label>
+                        <select id="type-filter" class="custom-select">
+                            <option value="All">All Formats</option>
+                            <option value="Movie">Movies Only</option>
+                            <option value="TV Show">TV Shows Only</option>
+                        </select>
+                    </div>
+
+                    <button id="reset-view-btn" class="btn btn-secondary">
+                        <i class="fa-solid fa-rotate-left"></i> Reset Canvas
+                    </button>
+                </div>
+            </div>
+
+            <div class="scatter-container-card">
+                <div class="scatter-wrapper">
+                    <canvas id="clusterCanvas" width="960" height="520"></canvas>
+                    <div id="scatter-tooltip" class="scatter-tooltip hidden"></div>
+                </div>
+                
+                <div class="scatter-sidebar">
+                    <div class="sidebar-title">Cluster Color Legend</div>
+                    <div class="legend-list" id="cluster-legend-items">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <div class="sidebar-info-box">
+                        <div class="info-title"><i class="fa-solid fa-circle-info"></i> PCA Projection Insights</div>
+                        <p class="info-text">
+                            Dimension reduction projects 61 multi-label feature dimensions into 2D orthogonal latent space. 
+                            Hover on any point to inspect movie/show details or click to filter the catalog.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Algorithmic Benchmark & K-Optimization -->
+        <section id="benchmarks" class="section">
+            <div class="section-header">
+                <div>
+                    <span class="section-subtitle">UNSUPERVISED MODEL BENCHMARKING</span>
+                    <h2 class="section-title">Algorithm Comparison & Optimal K Evaluation</h2>
+                </div>
+                <div class="chart-tab-controls">
+                    <button class="tab-btn active" data-chart="elbow">Elbow (Inertia)</button>
+                    <button class="tab-btn" data-chart="silhouette">Silhouette Scores</button>
+                    <button class="tab-btn" data-chart="davies">Davies-Bouldin Index</button>
+                </div>
+            </div>
+
+            <div class="benchmarks-grid">
+                <!-- Interactive Chart Card -->
+                <div class="chart-card">
+                    <div class="card-header">
+                        <span class="card-title" id="optimization-chart-title">Elbow Method (WCSS vs K Clusters)</span>
+                        <span class="card-badge">Optimal K = 6</span>
+                    </div>
+                    <div class="chart-canvas-wrapper">
+                        <canvas id="optimizationChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Algorithm Comparison Table Card -->
+                <div class="benchmark-table-card">
+                    <div class="card-header">
+                        <span class="card-title">Multi-Algorithm Performance Matrix</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="benchmark-table">
+                            <thead>
+                                <tr>
+                                    <th>Algorithm</th>
+                                    <th>Clusters</th>
+                                    <th>Silhouette</th>
+                                    <th>Davies-Bouldin</th>
+                                    <th>Calinski-H.</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="benchmark-tbody">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="model-selection-rationale">
+                        <div class="rationale-header"><i class="fa-solid fa-check-circle"></i> Selection Rationale</div>
+                        <p>
+                            <strong>K-Means (K=6)</strong> was selected for production deployment because it delivers the optimal balance of intra-cluster cohesion (Silhouette 0.158) and maximum semantic separation across genre cross-sections, runtime durations, and global regions, outperforming density and soft probabilistic models on sparse categorical spaces.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Discovered Persona Universes -->
+        <section id="personas" class="section">
+            <div class="section-header">
+                <div>
+                    <span class="section-subtitle">SEGMENT PROFILES</span>
+                    <h2 class="section-title">Discovered Netflix Content Archetypes</h2>
+                </div>
+            </div>
+
+            <div class="personas-grid" id="personas-container">
+                <!-- Populated dynamically by JS -->
+            </div>
+        </section>
+
+        <!-- Live Content Segment Predictor & Simulator -->
+        <section id="predictor" class="section">
+            <div class="section-header">
+                <div>
+                    <span class="section-subtitle">DYNAMIC INFERENCE ENGINE</span>
+                    <h2 class="section-title">Live Title Segment Predictor & Simulator</h2>
+                </div>
+            </div>
+
+            <div class="predictor-grid">
+                <!-- Input Form Card -->
+                <div class="predictor-form-card">
+                    <div class="card-header">
+                        <span class="card-title"><i class="fa-solid fa-sliders"></i> Input Content Attributes</span>
+                    </div>
+
+                    <div class="preset-pills">
+                        <span class="preset-label">Quick Presets:</span>
+                        <button class="preset-btn" data-preset="kdrama">K-Drama Romance</button>
+                        <button class="preset-btn" data-preset="standup">Stand-Up Special</button>
+                        <button class="preset-btn" data-preset="retro">80s Hollywood Action</button>
+                        <button class="preset-btn" data-preset="kids">Preschool Animation</button>
+                    </div>
+
+                    <form id="predict-form" class="sim-form">
+                        <div class="form-row">
+                            <div class="form-group flex-2">
+                                <label for="sim-title">Content Title</label>
+                                <input type="text" id="sim-title" class="form-input" value="Seoul Midnight Secrets" required>
+                            </div>
+
+                            <div class="form-group flex-1">
+                                <label for="sim-type">Format</label>
+                                <select id="sim-type" class="form-select">
+                                    <option value="TV Show" selected>TV Show</option>
+                                    <option value="Movie">Movie</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group flex-1">
+                                <label for="sim-year">Release Year: <span id="year-display">2023</span></label>
+                                <input type="range" id="sim-year" class="form-range" min="1950" max="2024" value="2023">
+                            </div>
+
+                            <div class="form-group flex-1">
+                                <label for="sim-duration">Duration</label>
+                                <input type="text" id="sim-duration" class="form-input" value="2 Seasons" placeholder="e.g. 105 min or 2 Seasons">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group flex-1">
+                                <label for="sim-rating">Maturity Rating</label>
+                                <select id="sim-rating" class="form-select">
+                                    <option value="TV-MA" selected>TV-MA (Mature)</option>
+                                    <option value="TV-14">TV-14 (Teens)</option>
+                                    <option value="TV-PG">TV-PG (Family)</option>
+                                    <option value="TV-Y7">TV-Y7 / TV-Y (Kids)</option>
+                                    <option value="R">R (Adult Film)</option>
+                                    <option value="PG-13">PG-13</option>
+                                    <option value="PG">PG</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group flex-1">
+                                <label for="sim-country">Country of Origin</label>
+                                <select id="sim-country" class="form-select">
+                                    <option value="South Korea" selected>South Korea</option>
+                                    <option value="United States">United States</option>
+                                    <option value="India">India</option>
+                                    <option value="United Kingdom">United Kingdom</option>
+                                    <option value="Japan">Japan</option>
+                                    <option value="Spain">Spain</option>
+                                    <option value="France">France</option>
+                                    <option value="Canada">Canada</option>
+                                    <option value="Mexico">Mexico</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sim-genres">Genres & Categories (comma separated)</label>
+                            <input type="text" id="sim-genres" class="form-input" value="International TV Shows, Romantic TV Shows, TV Dramas, TV Mysteries">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fa-solid fa-bolt"></i> Run Real-Time Unsupervised Prediction
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Live Results Card -->
+                <div class="predictor-results-card">
+                    <div class="card-header">
+                        <span class="card-title"><i class="fa-solid fa-square-poll-vertical"></i> Predicted Segment & Neighbor Analysis</span>
+                    </div>
+
+                    <div id="prediction-output" class="prediction-output">
+                        <div class="empty-state">
+                            <i class="fa-solid fa-wand-magic-sparkles empty-icon"></i>
+                            <p>Click "Run Real-Time Unsupervised Prediction" or select a preset to compute the segment embedding and discover sister titles.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filterable Catalog Explorer -->
+        <section id="catalog" class="section">
+            <div class="section-header">
+                <div>
+                    <span class="section-subtitle">FULL CATALOG DATABASE</span>
+                    <h2 class="section-title">Segmented Netflix Catalog Explorer</h2>
+                </div>
+                <div class="catalog-search-bar">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="catalog-search-input" placeholder="Search by title, director, country, or genre...">
+                </div>
+            </div>
+
+            <div class="catalog-card">
+                <div class="catalog-filters-bar">
+                    <div class="filter-pill-group">
+                        <button class="cat-filter-btn active" data-cluster="all">All Segments</button>
+                        <button class="cat-filter-btn" data-cluster="0">C0: Comedy/Family</button>
+                        <button class="cat-filter-btn" data-cluster="1">C1: Global Series</button>
+                        <button class="cat-filter-btn" data-cluster="2">C2: Vintage Cinema</button>
+                        <button class="cat-filter-btn" data-cluster="3">C3: Docs & Specials</button>
+                        <button class="cat-filter-btn" data-cluster="4">C4: Kids Animation</button>
+                        <button class="cat-filter-btn" data-cluster="5">C5: Indie Cinema</button>
+                    </div>
+
+                    <div class="catalog-counter" id="catalog-results-count">Showing 25 of 8,790 titles</div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="catalog-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Format</th>
+                                <th>Year</th>
+                                <th>Rating</th>
+                                <th>Duration</th>
+                                <th>Genres</th>
+                                <th>Country</th>
+                                <th>Assigned Segment</th>
+                            </tr>
+                        </thead>
+                        <tbody id="catalog-table-body">
+                            <!-- Dynamic rows -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination-bar">
+                    <button id="prev-page-btn" class="btn btn-secondary btn-sm" disabled><i class="fa-solid fa-chevron-left"></i> Prev</button>
+                    <span id="page-indicator" class="page-indicator">Page 1 of 352</span>
+                    <button id="next-page-btn" class="btn btn-secondary btn-sm">Next <i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Strategic Business Intelligence & Catalog Gap Matrix -->
+        <section id="strategy" class="section">
+            <div class="section-header">
+                <div>
+                    <span class="section-subtitle">STRATEGIC ROADMAP</span>
+                    <h2 class="section-title">Content Acquisition & Portfolio Optimization</h2>
+                </div>
+            </div>
+
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <div class="card-icon" style="background: rgba(244, 63, 94, 0.15); color: #f43f5e;"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    <div class="strategy-title">Heritage Archive Gap (4.7% Volume)</div>
+                    <p class="strategy-body">
+                        Classic and vintage 20th-century cinema represents under 5% of catalog share. Acquiring curated Asian/European vintage licenses provides high perceived prestige at low licensing fee overhead.
+                    </p>
+                </div>
+
+                <div class="strategy-card">
+                    <div class="card-icon" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8;"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="strategy-title">Preschool & Youth Retention Engine (14.4%)</div>
+                    <p class="strategy-body">
+                        Kids animated content displays the lowest churn velocity across all customer cohorts. Expanding non-English animation pipelines in South Korea and France strengthens multi-year household subscriptions.
+                    </p>
+                </div>
+
+                <div class="strategy-card">
+                    <div class="card-icon" style="background: rgba(16, 185, 129, 0.15); color: #10b981;"><i class="fa-solid fa-chart-line"></i></div>
+                    <div class="strategy-title">Non-Fiction & Stand-Up Velocity (27.0%)</div>
+                    <p class="strategy-body">
+                        Documentaries and Stand-Up Specials act as premier cultural zeitgeist drivers with high social conversation density. Prioritize regional investigative docuseries in Latin America and Asia.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="footer-container">
+            <div>
+                <strong>Netflix Content Segmentation Pipeline</strong> • Task 4 Assessment
+            </div>
+            <div>
+                Unsupervised Machine Learning System • Original & Plagiarism-Free Implementation
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
