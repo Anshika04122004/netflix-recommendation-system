@@ -13,7 +13,6 @@ venv/
 ENV/
 build/
 develop-eggs/
-dist/
 downloads/
 eggs/
 .eggs/
@@ -52,9 +51,12 @@ Thumbs.db
 # Jupyter Checkpoints
 .ipynb_checkpoints/
 
-# Large ML model artifacts (use Git LFS or exclude)
+# Large ML model artifacts (>100MB — exceeds GitHub file limit)
+# Upload these separately via Git LFS or cloud storage
 models/best_model.pkl
-models/preprocessor.pkl
 
-# Temp / scratch files
+# Misc extracted files
 extracted_requirements.txt
+
+*.docx
+

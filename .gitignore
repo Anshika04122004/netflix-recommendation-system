@@ -22,3 +22,7 @@ Thumbs.db
 *.pdf
 Dataset.csv
 
+
+*.docx
+Task 3/models/best_model.pkl
+
